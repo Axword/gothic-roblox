@@ -37,11 +37,12 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Gardziel mówi do wszystkich. Większość udaje, że to wiatr.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Naucz mnie słuchać.",
+              "next": "lesson",
+              "action": "startQuest:quest_side_09"
             },
             {
               "text": "Odchodzę.",
@@ -50,11 +51,19 @@
           ]
         },
         {
-          "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "id": "lesson",
+          "text": "Przynieś mi ciszę z kamienia. Potem zobaczymy, czy ręce ci nie drżą.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wróciłem po lekcję.",
+              "action": "completeQuest:quest_side_09"
+            },
+            {
+              "text": "Pokaż mi Żarzący Grot.",
+              "action": "learnSpell:spell_ember"
+            },
+            {
+              "text": "Koniec.",
               "action": "close"
             }
           ]

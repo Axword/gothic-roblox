@@ -19,3 +19,8 @@
 - Dodano serwerowo autorytatywne szkolenie u pięciu nauczycieli: koszt PN/żużlu, limit, dystans i zakres z JSON.
 - Dodano trzy skrzynie o poziomach zamka I–III, sekwencje oraz łup definiowane wyłącznie w danych.
 - Dodano serwerowo walidowane skórowanie pokonanej bestii po nauce u Żaby.
+
+## 2026-07-19 — Iteracja 5: autorytatywne dialogi i droga do finału
+- Dodano serwerowy `DialogueService`: klient wybiera numer odpowiedzi, ale węzły, akcje questów i wybór frakcji zatwierdza serwer.
+- Borzuj i Runa prowadzą działający skrócony łańcuch kandydacki do dwóch zadań i wyboru frakcji; epilog jest zależny od strony.
+- Pustelnik Karp oferuje zadanie i dopiero po jego ukończeniu uczy Żarzącego Grotu.

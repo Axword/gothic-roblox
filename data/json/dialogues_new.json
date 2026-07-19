@@ -10,8 +10,9 @@
           "text": "Nie przyszedłeś tu po prawdę. Prawda nie ma tu łóżka.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Szukam prawa do głosu.",
+              "next": "newwork",
+              "action": "startQuest:quest_main_arrival"
             },
             {
               "text": "Odchodzę.",
@@ -25,6 +26,36 @@
           "responses": [
             {
               "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "newwork",
+          "text": "Wolność nie jest za darmo. Po prostu rachunek przychodzi z nożem.",
+          "responses": [
+            {
+              "text": "Biorę Dług bez twarzy.",
+              "action": "startQuest:quest_new_01"
+            },
+            {
+              "text": "Raport: dług zamknięty.",
+              "action": "completeQuest:quest_new_01"
+            },
+            {
+              "text": "Biorę Cichą dostawę.",
+              "action": "startQuest:quest_new_02"
+            },
+            {
+              "text": "Raport: dostawa dotarła.",
+              "action": "completeQuest:quest_new_02"
+            },
+            {
+              "text": "Przysięgam Wolnicy.",
+              "action": "chooseFaction:wolnica"
+            },
+            {
+              "text": "Dość.",
               "action": "close"
             }
           ]

@@ -40,7 +40,8 @@ notice.OnClientEvent:Connect(function(kind:string,value:any)
  if kind=="state" then state=value;local s=value.stats;hp.Text=string.format("HP %d | Mana %d | Lvl %d | %s",s.maxHp,s.mana,s.level,style);return end
  if kind=="toast" then toast(value)
  elseif kind=="trainer" then activeTrainer=value;panel.Text="NAUCZYCIEL [T]\n"..table.concat(value.skills,", ").."\nT kupuje następną rangę pierwszej umiejętności.";panel.Visible=true
- elseif kind=="dialogue" then dialog.Text="Rozmowa: "..value.."\n[1] pytaj  [2] przyjmij pracę  [Esc] odejdź";dialog.Visible=true
+ elseif kind=="dialogueNode" then local lines={value.text};for i,response in ipairs(value.responses) do table.insert(lines,"["..i.."] "..response.text) end;dialog.Text=table.concat(lines,"\n");dialog.Visible=true
+ elseif kind=="epilogue" then dialog.Text="EPILOG\nWybrałeś "..string.gsub(value,"epilogue:","")..". Gardziel nadal oddycha pod kamieniem.";dialog.Visible=true
  elseif kind=="lock" then action:FireServer("lockStart",value);toast("Zamek: czekaj na kierunek.")
  elseif kind=="lockStep" then toast("Zamek: naciśnij "..(value=="left" and "A" or "D")) end
 end)
@@ -48,12 +49,13 @@ local function bind(name:string,key:Enum.KeyCode,fn:()->()):() ContextActionServ
 bind("LockLeft",Enum.KeyCode.A,function() action:FireServer("lockInput","left") end)
 bind("LockRight",Enum.KeyCode.D,function() action:FireServer("lockInput","right") end)
 bind("Save",Enum.KeyCode.F5,function() action:FireServer("save") end)
-bind("CloseDialog",Enum.KeyCode.Escape,function() dialog.Visible=false;panel.Visible=false end)
+bind("CloseDialog",Enum.KeyCode.Escape,function() if dialog.Visible then action:FireServer("dialogueClose") end;dialog.Visible=false;panel.Visible=false end)
 bind("Inventory",Enum.KeyCode.I,showInventory);bind("Journal",Enum.KeyCode.J,showJournal);bind("Character",Enum.KeyCode.C,showCharacter)
 bind("Train",Enum.KeyCode.T,function() if activeTrainer then action:FireServer("train",{trainerId=activeTrainer.id,skill=activeTrainer.skills[1]}) else toast("Najpierw znajdź nauczyciela.") end end)
-bind("Sword",Enum.KeyCode.One,function() style="sword";itemId="sword_01";toast("Miecz gotów.") end)
-bind("Bow",Enum.KeyCode.Two,function() style="bow";itemId="bow_01";toast("Łuk gotów.") end)
-bind("Spell",Enum.KeyCode.Three,function() style="spell";itemId="spell_ember";toast("Żarzący Grot gotów.") end)
+bind("Sword",Enum.KeyCode.One,function() if dialog.Visible then action:FireServer("dialogueChoice",1) else style="sword";itemId="sword_01";toast("Miecz gotów.") end end)
+bind("Bow",Enum.KeyCode.Two,function() if dialog.Visible then action:FireServer("dialogueChoice",2) else style="bow";itemId="bow_01";toast("Łuk gotów.") end end)
+bind("Spell",Enum.KeyCode.Three,function() if dialog.Visible then action:FireServer("dialogueChoice",3) else style="spell";itemId="spell_ember";toast("Żarzący Grot gotów.") end end)
+for index,key in ipairs({Enum.KeyCode.Four,Enum.KeyCode.Five,Enum.KeyCode.Six,Enum.KeyCode.Seven,Enum.KeyCode.Eight}) do bind("Dialogue"..index,key,function() if dialog.Visible then action:FireServer("dialogueChoice",index+3) end end) end
 bind("Attack",Enum.KeyCode.F,function() local id=targetId();if id then action:FireServer("attack",{targetId=id,style=style,itemId=itemId}) else toast("Nie masz celu.") end end)
 bind("Skin",Enum.KeyCode.G,function() local id=targetId();if id then action:FireServer("skin",id) else toast("Nie masz celu.") end end)
 action:FireServer("state")

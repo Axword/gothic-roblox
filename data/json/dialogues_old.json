@@ -15,8 +15,8 @@
               "action": "startQuest:quest_main_arrival"
             },
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Masz robotę dla nikogo?",
+              "next": "oldwork"
             },
             {
               "text": "Odchodzę.",
@@ -44,6 +44,36 @@
             },
             {
               "text": "Nie dziś.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "oldwork",
+          "text": "Porządek sam się nie policzy. Brud też nie.",
+          "responses": [
+            {
+              "text": "Biorę Twardą bramę.",
+              "action": "startQuest:quest_old_01"
+            },
+            {
+              "text": "Raport: brama załatwiona.",
+              "action": "completeQuest:quest_old_01"
+            },
+            {
+              "text": "Biorę Rejestr długów.",
+              "action": "startQuest:quest_old_02"
+            },
+            {
+              "text": "Raport: rejestr odzyskany.",
+              "action": "completeQuest:quest_old_02"
+            },
+            {
+              "text": "Przysięgam Kordonowi.",
+              "action": "chooseFaction:kordon"
+            },
+            {
+              "text": "Dość.",
               "action": "close"
             }
           ]

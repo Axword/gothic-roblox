@@ -20,3 +20,6 @@ Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następ
 
 ## Iteracja 4
 - Nauczyciele, rangi zamków I–III i pozyskiwanie trofeów mają ścieżkę wykonania w runtime. UI treningu jest celowo skromne: T kupuje pierwszą umiejętność z listy aktualnego nauczyciela; wybór konkretnej umiejętności jest P1.
+
+## Iteracja 5
+- Dialogi nie są już wyłącznie etykietą: serwer przechowuje aktywny węzeł i wykonuje akcje `startQuest`, `completeQuest`, `chooseFaction` oraz `learnSpell`. Obecne dialogi liderów świadomie skracają etapowe cele do raportu, aby umożliwić test pełnego przepływu; docelowe cele terenowe pozostają P0.

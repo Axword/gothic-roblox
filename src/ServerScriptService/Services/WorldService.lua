@@ -9,6 +9,7 @@ local Quest = require(script.Parent.QuestService)
 local State = require(script.Parent.StateService)
 local Crime = require(script.Parent.CrimeService)
 local Trainers = require(script.Parent.TrainerService)
+local Dialogues = require(script.Parent.DialogueService)
 
 local World = {}
 local worldTime = 8
@@ -83,7 +84,7 @@ local function spawnNpc(folder: Folder, data: any, index: number): ()
 		if data.id == "npc_old_01" then Quest.start(player, "quest_main_arrival") end
 		local trainer = Trainers.forNpc(data.id)
 		if trainer then ReplicatedStorage.Remotes.GameNotice:FireClient(player, "trainer", trainer) end
-		ReplicatedStorage.Remotes.GameNotice:FireClient(player, "dialogue", data.dialogueId)
+		Dialogues.open(player, data.dialogueId)
 	end)
 end
 
