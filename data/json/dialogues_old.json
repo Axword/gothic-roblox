@@ -86,21 +86,26 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Brama nie otwiera się na miny.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Biorę zlecenie.",
+              "next": "work",
+              "action": "startQuest:quest_old_02"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Oddaję raport.",
+              "action": "completeQuest:quest_old_02"
+            },
+            {
+              "text": "Nie teraz.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Cel jest w terenie. Wróć, kiedy zrobisz to, po co przyszedłeś.",
           "responses": [
             {
               "text": "Rozumiem.",
@@ -116,21 +121,26 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Dług ma dłuższe nogi niż uczciwy człowiek.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Biorę zlecenie.",
+              "next": "work",
+              "action": "startQuest:quest_old_03"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Oddaję raport.",
+              "action": "completeQuest:quest_old_03"
+            },
+            {
+              "text": "Nie teraz.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Cel jest w terenie. Wróć, kiedy zrobisz to, po co przyszedłeś.",
           "responses": [
             {
               "text": "Rozumiem.",
@@ -146,21 +156,26 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Apel zaczyna się tam, gdzie kończy się cierpliwość.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Biorę zlecenie.",
+              "next": "work",
+              "action": "startQuest:quest_old_04"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Oddaję raport.",
+              "action": "completeQuest:quest_old_04"
+            },
+            {
+              "text": "Nie teraz.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Cel jest w terenie. Wróć, kiedy zrobisz to, po co przyszedłeś.",
           "responses": [
             {
               "text": "Rozumiem.",
@@ -176,21 +191,26 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Znajdź pałkę albo wymyśl lepsze kłamstwo.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Biorę zlecenie.",
+              "next": "work",
+              "action": "startQuest:quest_old_05"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Oddaję raport.",
+              "action": "completeQuest:quest_old_05"
+            },
+            {
+              "text": "Nie teraz.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Cel jest w terenie. Wróć, kiedy zrobisz to, po co przyszedłeś.",
           "responses": [
             {
               "text": "Rozumiem.",

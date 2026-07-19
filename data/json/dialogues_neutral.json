@@ -7,24 +7,29 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Nie przyszedłeś tu po prawdę. Prawda nie ma tu łóżka.",
+          "text": "Mam robotę. Czystej nie obiecuję.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Wezmę ją.",
+              "next": "work",
+              "action": "startQuest:quest_side_01"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Sprawa załatwiona.",
+              "action": "completeQuest:quest_side_01"
+            },
+            {
+              "text": "Nie.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Wróć, gdy będziesz miał wynik, nie wymówkę.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wracam do drogi.",
               "action": "close"
             }
           ]
@@ -76,24 +81,29 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Mam robotę. Czystej nie obiecuję.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Wezmę ją.",
+              "next": "work",
+              "action": "startQuest:quest_side_03"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Sprawa załatwiona.",
+              "action": "completeQuest:quest_side_03"
+            },
+            {
+              "text": "Nie.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Wróć, gdy będziesz miał wynik, nie wymówkę.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wracam do drogi.",
               "action": "close"
             }
           ]
@@ -106,24 +116,29 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Mam robotę. Czystej nie obiecuję.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Wezmę ją.",
+              "next": "work",
+              "action": "startQuest:quest_side_04"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Sprawa załatwiona.",
+              "action": "completeQuest:quest_side_04"
+            },
+            {
+              "text": "Nie.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Wróć, gdy będziesz miał wynik, nie wymówkę.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wracam do drogi.",
               "action": "close"
             }
           ]
@@ -136,24 +151,29 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Mam robotę. Czystej nie obiecuję.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Wezmę ją.",
+              "next": "work",
+              "action": "startQuest:quest_side_05"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Sprawa załatwiona.",
+              "action": "completeQuest:quest_side_05"
+            },
+            {
+              "text": "Nie.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Wróć, gdy będziesz miał wynik, nie wymówkę.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wracam do drogi.",
               "action": "close"
             }
           ]
@@ -166,24 +186,29 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Mam robotę. Czystej nie obiecuję.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Wezmę ją.",
+              "next": "work",
+              "action": "startQuest:quest_side_06"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Sprawa załatwiona.",
+              "action": "completeQuest:quest_side_06"
+            },
+            {
+              "text": "Nie.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Wróć, gdy będziesz miał wynik, nie wymówkę.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wracam do drogi.",
               "action": "close"
             }
           ]
@@ -196,24 +221,29 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Mam robotę. Czystej nie obiecuję.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Wezmę ją.",
+              "next": "work",
+              "action": "startQuest:quest_side_07"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Sprawa załatwiona.",
+              "action": "completeQuest:quest_side_07"
+            },
+            {
+              "text": "Nie.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Wróć, gdy będziesz miał wynik, nie wymówkę.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wracam do drogi.",
               "action": "close"
             }
           ]
@@ -226,24 +256,29 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Mam robotę. Czystej nie obiecuję.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Wezmę ją.",
+              "next": "work",
+              "action": "startQuest:quest_side_08"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Sprawa załatwiona.",
+              "action": "completeQuest:quest_side_08"
+            },
+            {
+              "text": "Nie.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Wróć, gdy będziesz miał wynik, nie wymówkę.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wracam do drogi.",
               "action": "close"
             }
           ]
@@ -256,24 +291,29 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Mam robotę. Czystej nie obiecuję.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Wezmę ją.",
+              "next": "work",
+              "action": "startQuest:quest_side_09"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Sprawa załatwiona.",
+              "action": "completeQuest:quest_side_09"
+            },
+            {
+              "text": "Nie.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Wróć, gdy będziesz miał wynik, nie wymówkę.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wracam do drogi.",
               "action": "close"
             }
           ]
@@ -286,24 +326,29 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Mam robotę. Czystej nie obiecuję.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Wezmę ją.",
+              "next": "work",
+              "action": "startQuest:quest_side_10"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Sprawa załatwiona.",
+              "action": "completeQuest:quest_side_10"
+            },
+            {
+              "text": "Nie.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Wróć, gdy będziesz miał wynik, nie wymówkę.",
           "responses": [
             {
-              "text": "Rozumiem.",
+              "text": "Wracam do drogi.",
               "action": "close"
             }
           ]

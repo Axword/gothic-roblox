@@ -18,6 +18,9 @@ assert {x['lockDifficulty'] for x in records('world_interactables.json') if 'loc
 assert len(records('trainers.json')) >= 5
 assert any('chooseFaction:' in str(x) for x in records('dialogues_old.json'))
 assert any('learnSpell:spell_ember' in str(x) for x in records('dialogues_neutral.json'))
+assert sum('startQuest:quest_old_' in str(x) for x in records('dialogues_old.json')) >= 5
+assert sum('startQuest:quest_new_' in str(x) for x in records('dialogues_new.json')) >= 5
+assert sum('startQuest:quest_side_' in str(x) for x in records('dialogues_neutral.json')) >= 9
 # Formula mirrors Shared/Formulae.lua; explicit guards against balance regression.
 def hp(level,vitality): return 80+level*12+vitality*2
 assert hp(1,0)==92 and hp(3,5)==126

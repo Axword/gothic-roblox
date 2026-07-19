@@ -68,21 +68,26 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Dług bez twarzy gryzie najgorzej.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Biorę zlecenie.",
+              "next": "work",
+              "action": "startQuest:quest_new_02"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Oddaję raport.",
+              "action": "completeQuest:quest_new_02"
+            },
+            {
+              "text": "Nie teraz.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Cel jest w terenie. Wróć, kiedy zrobisz to, po co przyszedłeś.",
           "responses": [
             {
               "text": "Rozumiem.",
@@ -98,21 +103,26 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Dostawa ma nie mieć świadków.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Biorę zlecenie.",
+              "next": "work",
+              "action": "startQuest:quest_new_03"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Oddaję raport.",
+              "action": "completeQuest:quest_new_03"
+            },
+            {
+              "text": "Nie teraz.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Cel jest w terenie. Wróć, kiedy zrobisz to, po co przyszedłeś.",
           "responses": [
             {
               "text": "Rozumiem.",
@@ -128,21 +138,26 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Krew na trzcinie nie spiera się wodą.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Biorę zlecenie.",
+              "next": "work",
+              "action": "startQuest:quest_new_04"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Oddaję raport.",
+              "action": "completeQuest:quest_new_04"
+            },
+            {
+              "text": "Nie teraz.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Cel jest w terenie. Wróć, kiedy zrobisz to, po co przyszedłeś.",
           "responses": [
             {
               "text": "Rozumiem.",
@@ -158,21 +173,26 @@
       "nodes": [
         {
           "id": "start",
-          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "text": "Skrzynia pękła. Zasady też.",
           "responses": [
             {
-              "text": "Mam pytanie.",
-              "next": "work"
+              "text": "Biorę zlecenie.",
+              "next": "work",
+              "action": "startQuest:quest_new_05"
             },
             {
-              "text": "Odchodzę.",
+              "text": "Oddaję raport.",
+              "action": "completeQuest:quest_new_05"
+            },
+            {
+              "text": "Nie teraz.",
               "action": "close"
             }
           ]
         },
         {
           "id": "work",
-          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "text": "Cel jest w terenie. Wróć, kiedy zrobisz to, po co przyszedłeś.",
           "responses": [
             {
               "text": "Rozumiem.",

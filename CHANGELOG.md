@@ -34,3 +34,7 @@
 - Wszystkie sześć gatunków stworów oraz ich spawny z JSON są reprezentowane na mapie, z osobnymi sylwetkami i podstawowymi zachowaniami pack/tank/ranged/nocturnal/ambush/caster.
 - Cele walki używają unikalnego `SpawnId`, więc obrażenia i skórowanie nie mieszają wielu osobników tego samego gatunku.
 - Wszystkie dziesięć gatunków roślin otrzymało zbieralne reprezentacje świata.
+
+## 2026-07-19 — Iteracja 8: kompletne podłączenie zleceń i pauza
+- Wszystkie pięć kandydackich questów każdej frakcji otrzymało zleceniodawcę dialogowego; dziesięć zadań pobocznych ma własne punkty przyjęcia/raportu.
+- Dodano minimalistyczne menu pauzy z zapisem/wczytaniem oraz lokalnymi ustawieniami prezentacji.

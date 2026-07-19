@@ -22,6 +22,7 @@ action.OnServerEvent:Connect(function(player,kind:string,payload:any)
  elseif kind=="dialogueClose" then Dialogues.close(player)
  elseif kind=="train" and type(payload)=="table" and type(payload.trainerId)=="string" and type(payload.skill)=="string" then local ok,message=Trainers.train(player,payload.trainerId,payload.skill);notice:FireClient(player,"toast",message)
  elseif kind=="save" then notice:FireClient(player,"toast",Save.save(player) and "Zapisano." or "Błąd zapisu.")
+ elseif kind=="load" then notice:FireClient(player,"toast",Save.load(player) and "Wczytano." or "Błąd wczytywania.")
  elseif kind=="state" then -- explicitly requested snapshot; all data remains server-owned
  end
  sync(player)
