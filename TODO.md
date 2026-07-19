@@ -1,10 +1,10 @@
 # TODO
 ## P0 — blokery kompletnej gry
 - [ ] Zweryfikować w Roblox Studio i opublikowanym private test.
-- [ ] Podłączyć wszystkie 65 NPC do spawnu, Pathfinder/LOS, rutyn i fallback teleportu.
-- [ ] Wdrożyć pełne UI: inventory, journal, stats, menu, opcje i sloty.
-- [ ] Zaimplementować fizyczne ataki miecz/łuk/magia, AI, loot, ogłuszenie, kradzież i skórowanie.
-- [ ] Egzekwować wszystkie etapy/warunki/konsekwencje questów oraz finał/epilog.
+- [ ] Zastąpić obecne markery 65 NPC pełnym Pathfinding/LOS, animowanymi rutynami i teleportowym fallbackiem poza wzrokiem.
+- [ ] Wdrożyć pełne UI: porównania inventory, etapy journalu, menu startowe, komplet opcji i wygodne sloty 1–3.
+- [ ] Dokończyć fizyczne ataki miecz/łuk/magia, AI, loot, ogłuszenie oraz eskalację kradzieży.
+- [ ] Rozwinąć alternatywne rozwiązania i konsekwencje questów; obecny finał/epilog działa, ale jest skrócony.
 ## P1
 - [ ] Modele, R15 animacje, VFX, audio i dostępne jakościowo assety.
 - [ ] Minigra zamka z HUD i poziomami II/III; sleep/fast-forward.

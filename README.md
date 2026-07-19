@@ -10,15 +10,15 @@ Oryginalny, polskojęzyczny action-RPG vertical slice dla Roblox Studio: dwa por
 `python tests/test_data.py` sprawdza JSON, referencje, minima zawartości i wzór HP. Do testu opublikowanego wymagane są osobne playtesty Studio — status w `PROGRESS.md`.
 
 ## Sterowanie wycinka
-`E` interakcja z Promptem, `A/D` odpowiedź zamka, `Esc` opuszcza dialog, `F5` zapisuje. HUD i komunikaty są responsywne. System wejścia używa ContextActionService, dlatego łatwo przypisać przyciski dotykowe.
+`E` interakcja z Promptem, `A/D` odpowiedź zamka, `Esc` opuszcza dialog, `F5` zapisuje do slotu 1. HUD i komunikaty są responsywne. System wejścia używa ContextActionService, dlatego łatwo przypisać przyciski dotykowe.
 
 ## Licencja / assety
 Cała aktualna geometria jest proceduralna z prymitywów Roblox. Nie zaimportowano obcych assetów; szczegóły w `THIRD_PARTY_ASSETS.md`.
 
 Dodatkowe skróty wycinka: `1/2/3` wybiera miecz/łuk/czar, `F` atakuje cel pod kursorem, `G` skóruje pokonaną bestię po szkoleniu, `T` kupuje wskazaną lekcję u otwartego nauczyciela. Zamki mają trzy poziomy i wymagają odpowiedniej rangi otwierania zamków.
 
-`P` otwiera aktualnie dostępne menu pauzy: Wznów, Zapisz, Wczytaj i lokalne opcje prezentacji. Zapis/Wczytanie jest zawsze ponownie autoryzowane przez serwer.
+`P` otwiera menu pauzy: Wznów, zapis/wczytanie slotów 1–2 oraz zapis slotu 3. Zapis/Wczytanie jest zawsze ponownie autoryzowane przez serwer.
 
-Zapis obsługuje trzy sloty. Pauza udostępnia sloty 1 i 2 bezpośrednio, a slot 3 jest dostępny z dedykowanego przycisku; indeks slotu jest zawsze walidowany na serwerze. `O` przełącza czułość myszy i widoczność napisów dla bieżącej sesji.
+Zapis obsługuje trzy sloty. Indeks slotu jest zawsze walidowany na serwerze. `O` przełącza czułość myszy i widoczność napisów dla bieżącej sesji; są to ustawienia lokalne, nie trwały profil.
 
 W ekwipunku `Z` wybiera następny posiadany przedmiot, a `X` używa mikstury/rośliny albo wyposaża broń czy pancerz. Przedmioty questowe pozostają chronione.

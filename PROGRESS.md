@@ -35,3 +35,8 @@ Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następ
 
 ## Iteracja 9
 - Zapis ma trzy sloty (`p_<UserId>_slot_1..3`) i bezpiecznie ogranicza wybrany indeks. Środowisko otrzymało proceduralny dressing oraz mgłę cząsteczkową. Ustawienia są wciąż lokalne dla sesji, a nie serializowane.
+
+## Audyt dokumentacji — 2026-07-19
+- Zsynchronizowano opis sterowania, slotów i stanu magii z aktualnym kodem.
+- Dokumenty rozróżniają dane/prototypy obecne w repozytorium od funkcji potwierdzonych playtestem Studio.
+- Najważniejsza pozostała luka dokumentacyjna nie jest ukryta: brak opublikowanego testu oraz brak finalnego AI, animacji i UI produkcyjnego.

@@ -12,7 +12,7 @@
 - Dodano panele ekwipunku, dziennika i postaci z synchronizacją snapshotu serwera.
 
 ## 2026-07-19 — Iteracja 3: walka i świadkowie
-- Startowy ekwipunek wycinka obejmuje miecz, łuk, strzały i jeden uczony czar, dzięki czemu można testować trzy style.
+- Startowy ekwipunek wycinka obejmuje miecz, łuk i strzały; Żarzący Grot jest nauczany później w queście Karpa, aby magia miała uzasadnienie fabularne.
 - Dodano serwerowy test własności łupu z promieniem i raycastem świadka; reputacja spada tylko gdy NPC realnie może zobaczyć czyn.
 
 ## 2026-07-19 — Iteracja 4: nauka, zamki i pozyskiwanie
