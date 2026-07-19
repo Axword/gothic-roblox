@@ -4,6 +4,7 @@ local Players=game:GetService("Players")
 local ReplicatedStorage=game:GetService("ReplicatedStorage")
 local ContextActionService=game:GetService("ContextActionService")
 local UserInputService=game:GetService("UserInputService")
+local TweenService=game:GetService("TweenService")
 local player=Players.LocalPlayer;local mouse=player:GetMouse()
 local remotes=ReplicatedStorage:WaitForChild("Remotes");local action=remotes:WaitForChild("GameAction") :: RemoteEvent;local notice=remotes:WaitForChild("GameNotice") :: RemoteEvent
 local gui=Instance.new("ScreenGui");gui.Name="AshBorderUI";gui.ResetOnSpawn=false;gui.IgnoreGuiInset=true;gui.Parent=player:WaitForChild("PlayerGui")
@@ -44,6 +45,12 @@ local function showCharacter()
  if not state then return end
  local s=state.stats;panel.Text=string.format("POSTAĆ  [C]\nPoziom %d | XP %d | PN %d\nHP %d | Mana %d\nSiła %d | Zręczność %d",s.level,s.xp,s.learningPoints,s.maxHp,s.mana,s.strength,s.dexterity);panel.Visible=not panel.Visible
 end
+local function pose(kind:string)
+ local char=player.Character;if not char then return end
+ for _,joint in ipairs(char:GetDescendants()) do if joint:IsA("Motor6D") and (joint.Name=="RightShoulder" or joint.Name=="LeftShoulder" or joint.Name=="Waist") then
+  local angle=kind=="heavy" and -1.4 or (kind=="block" and .8 or (kind=="dodge" and .45 or -.6));TweenService:Create(joint,TweenInfo.new(.12),{Transform=CFrame.Angles(angle,0,0)}):Play();task.delay(.24,function() if joint.Parent then TweenService:Create(joint,TweenInfo.new(.16),{Transform=CFrame.new()}):Play() end end)
+ end end
+end
 local function targetId():string?
  local hit=mouse.Target;if not hit then return nil end;local model=hit:FindFirstAncestorOfClass("Model");if not model then return nil end
  return (model:GetAttribute("SpawnId") or model:GetAttribute("MonsterId") or model:GetAttribute("NpcId")) :: string?
@@ -69,6 +76,9 @@ bind("Sword",Enum.KeyCode.One,function() if dialog.Visible then action:FireServe
 bind("Bow",Enum.KeyCode.Two,function() if dialog.Visible then action:FireServer("dialogueChoice",2) else style="bow";itemId="bow_01";toast("Łuk gotów.") end end)
 bind("Spell",Enum.KeyCode.Three,function() if dialog.Visible then action:FireServer("dialogueChoice",3) else style="spell";itemId="spell_ember";toast("Żarzący Grot gotów.") end end)
 for index,key in ipairs({Enum.KeyCode.Four,Enum.KeyCode.Five,Enum.KeyCode.Six,Enum.KeyCode.Seven,Enum.KeyCode.Eight}) do bind("Dialogue"..index,key,function() if dialog.Visible then action:FireServer("dialogueChoice",index+3) end end) end
-bind("Attack",Enum.KeyCode.F,function() local id=targetId();if id then action:FireServer("attack",{targetId=id,style=style,itemId=itemId}) else toast("Nie masz celu.") end end)
-bind("Skin",Enum.KeyCode.G,function() local id=targetId();if id then action:FireServer("skin",id) else toast("Nie masz celu.") end end)
+bind("Attack",Enum.KeyCode.F,function() local id=targetId();if id then pose("light");action:FireServer("attack",{targetId=id,style=style,itemId=itemId}) else toast("Nie masz celu.") end end)
+bind("HeavyAttack",Enum.KeyCode.Q,function() local id=targetId();if id and style=="sword" then pose("heavy");action:FireServer("attack",{targetId=id,style="sword_heavy",itemId=itemId}) end end)
+ContextActionService:BindAction("Block",function(_,inputState) if inputState==Enum.UserInputState.Begin then pose("block") end;action:FireServer("block",inputState==Enum.UserInputState.Begin);return Enum.ContextActionResult.Sink end,false,Enum.UserInputType.MouseButton2)
+bind("Dodge",Enum.KeyCode.LeftAlt,function() pose("dodge");action:FireServer("dodge") end)
+bind("Skin", Enum.KeyCode.G,function() local id=targetId();if id then action:FireServer("skin",id) else toast("Nie masz celu.") end end)
 action:FireServer("state")

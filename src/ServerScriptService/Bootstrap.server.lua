@@ -15,6 +15,8 @@ Players.PlayerRemoving:Connect(function(p) Save.save(p);rate[p]=nil;locks[p]=nil
 action.OnServerEvent:Connect(function(player,kind:string,payload:any)
  if not allowed(player) or type(kind)~="string" then return end
  if kind=="attack" and type(payload)=="table" and type(payload.targetId)=="string" and type(payload.style)=="string" and type(payload.itemId)=="string" then local target=targetById(payload.targetId);if target then Combat.damageTarget(player,target,payload.style,payload.itemId) end
+ elseif kind=="block" and type(payload)=="boolean" then Combat.setBlock(player,payload)
+ elseif kind=="dodge" then Combat.dodge(player)
  elseif kind=="skin" and type(payload)=="string" then local target=targetById(payload);if target then local _,message=Combat.skinTarget(player,target);notice:FireClient(player,"toast",message) end
  elseif kind=="lockStart" and type(payload)=="string" and chests[payload] and chests[payload].lockDifficulty then local chest=chests[payload];local s=State.get(player);if s.openedChests[payload] then notice:FireClient(player,"toast","Skrzynia jest pusta.") elseif (s.skills.lockpick or 0)<chest.lockDifficulty then notice:FireClient(player,"toast","Nie rozumiesz tego zamka.") else locks[player]={id=payload,step=1};notice:FireClient(player,"lockStep",chest.sequence[1]) end
  elseif kind=="lockInput" and (payload=="left" or payload=="right") then local lock=locks[player];if not lock then return end;local chest=chests[lock.id];local seq=chest.sequence;if payload==seq[lock.step] then lock.step+=1;if lock.step>#seq then for _,roll in ipairs(DataIndex.byId("loot_tables")[chest.lootTableId].rolls) do if roll.chance>=1 then State.addItem(player,roll.itemId,roll.quantity or 1) end end;State.get(player).openedChests[lock.id]=true;locks[player]=nil;notice:FireClient(player,"toast","Skrzynia otwarta.") else notice:FireClient(player,"lockStep",seq[lock.step]) end else local s=State.get(player);s.inventory.lockpick=math.max(0,(s.inventory.lockpick or 0)-1);locks[player]=nil;notice:FireClient(player,"toast","Wytrych pękł.") end
@@ -28,4 +30,4 @@ action.OnServerEvent:Connect(function(player,kind:string,payload:any)
  end
  sync(player)
 end)
-RunService.Heartbeat:Connect(function(dt) World.tick(dt) end)
+RunService.Heartbeat:Connect(function(dt) World.tick(dt);for _,player in ipairs(Players:GetPlayers()) do Combat.regenerate(player,dt) end end)

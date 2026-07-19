@@ -14,3 +14,7 @@
 ## Doprecyzowane po iteracji 4
 - [ ] Pełny ekran treningu z wyborem każdej umiejętności i warunkami questowymi.
 - [ ] Liniowa animacja/skinning loot table zależne od gatunku oraz odrodzenie potworów.
+
+## Doprecyzowanie po iteracji 11
+- [ ] Zastąpić proceduralne pozy Motor6D eksportowanymi animacjami R15 z Animator/Animation Editor i dodać reakcje trafienia/śmierci.
+- [ ] Przetestować combo, blok, unik i alarm w Studio pod opóźnieniem sieciowym.

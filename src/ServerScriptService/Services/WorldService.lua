@@ -196,12 +196,12 @@ local function tickMonster(monster: Model, dt: number): ()
 	local targetHum = closest.Parent and closest.Parent:FindFirstChildOfClass("Humanoid")
 	if behavior == "ranged" then
 		if distance > 28 then root.Position = root.Position:Lerp(closest.Position, math.min(dt * .22, 1))
-		elseif distance > 8 and targetHum then targetHum:TakeDamage(3) end
+		elseif distance > 8 and targetHum and not closest.Parent:GetAttribute("Dodging") then targetHum:TakeDamage(closest.Parent:GetAttribute("Blocking") and 1 or 3) end
 	elseif distance > 5 then
 		local speed = behavior == "tank" and .13 or .35
 		root.Position = root.Position:Lerp(closest.Position, math.min(dt * speed, 1))
-	elseif targetHum then
-		targetHum:TakeDamage(behavior == "tank" and 7 or 4)
+	elseif targetHum and not closest.Parent:GetAttribute("Dodging") then
+		targetHum:TakeDamage(closest.Parent:GetAttribute("Blocking") and 1 or (behavior == "tank" and 7 or 4))
 	end
 end
 
@@ -209,6 +209,14 @@ function World.tick(dt: number)
 	worldTime = (worldTime + dt * 0.05) % 24; Lighting.ClockTime = worldTime
 	elapsed += dt; scheduleClock += dt
 	if scheduleClock >= 8 then scheduleClock = 0; for npcId in pairs(npcModels) do applySchedule(npcId) end end
-	if elapsed >= .25 then for _, monster in ipairs(monsters) do tickMonster(monster, elapsed) end; elapsed = 0 end
+	if elapsed >= .25 then
+		for _, monster in ipairs(monsters) do tickMonster(monster, elapsed) end
+		-- Alarmed guards are local and faction-specific; they only strike a nearby wanted player.
+		for _,player in ipairs(Players:GetPlayers()) do
+			local char=player.Character;local playerRoot=char and char:FindFirstChild("HumanoidRootPart") :: BasePart?;local playerHum=char and char:FindFirstChildOfClass("Humanoid")
+			if playerRoot and playerHum then for _,npc in pairs(npcModels) do local faction=npc:GetAttribute("Faction");local npcRoot=npc:FindFirstChild("HumanoidRootPart") :: BasePart?;if type(faction)=="string" and State.get(player).flags["wanted_"..faction] and npcRoot and (npcRoot.Position-playerRoot.Position).Magnitude<10 then playerHum:TakeDamage(3) end end end
+		end
+		elapsed = 0
+	end
 end
 return World

@@ -47,3 +47,8 @@
 ## 2026-07-19 — Iteracja 10: aktywny ekwipunek
 - Dodano serwerowy `InventoryService`: wybór/wyposażanie broni i pancerza, używanie mikstur oraz roślin, blokadę przedmiotów questowych.
 - Klient obsługuje cykl Z i aktywację X; serwer sprawdza posiadanie przedmiotu przed zmianą stanu.
+
+## 2026-07-19 — Iteracja 11: combat stance i eskalacja alarmu
+- Dodano serwerowe lekkie/mocne ciosy, trzyetapowy combo liczony czasowo, staminę, blok i unik.
+- Klient wykonuje proceduralne pozy Motor6D dla R15 przy ciosie/bloku/uniku; finalne assety Animation Editor pozostają P1.
+- Alarm po przestępstwie oznacza gracza per frakcja, a pobliscy NPC frakcji zadają obrażenia.

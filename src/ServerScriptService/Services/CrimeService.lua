@@ -25,7 +25,8 @@ function CrimeService.reportTheft(player: Player, position: Vector3, ownerFactio
 	if witnesses == 0 then return "Nikt nie zauważył. To nie znaczy, że było mądre." end
 	local state = State.get(player)
 	state.reputation[ownerFaction] = math.max(-100, (state.reputation[ownerFaction] or 0) - witnesses * 5)
-	if witnesses >= 2 then return "Alarm. Za dużo oczu, za mało rozumu." end
+	if witnesses >= 2 then state.flags["wanted_" .. ownerFaction] = true; return "Alarm. Za dużo oczu, za mało rozumu." end
+	state.flags["warned_" .. ownerFaction] = true
 	return "Ostrzeżenie. Oddaj rzecz albo licz się z grzywną."
 end
 return CrimeService
