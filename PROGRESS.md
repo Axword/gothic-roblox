@@ -26,3 +26,6 @@ Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następ
 
 ## Iteracja 6
 - Wszystkie 10 kandydackich questów ma możliwy do wykonania, serwerowo rejestrowany cel terenowy. Dwa pierwsze każdej frakcji są podłączone do dialogu lidera i pełnego wyboru frakcji; pozostałe cele są przygotowane w danych/world markerach, a ich przyjęcie zostanie połączone z odpowiednimi zleceniodawcami.
+
+## Iteracja 7
+- Każdy z sześciu gatunków potworów ma runtime spawn z `monster_spawns.json`; zachowanie jest nadal lekką, proceduralną AI (bez PathfindingService i animacji). Flora jest zbieralna i zapisuje ID przedmiotu do ekwipunku.

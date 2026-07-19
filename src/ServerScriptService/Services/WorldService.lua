@@ -126,6 +126,16 @@ function World.build()
 			end)
 		end
 	end
+	-- Gatherable flora comes from item JSON; each visual is deliberately a different color/height.
+	for index, plantData in ipairs(DataIndex.records("items_plants")) do
+		local herb = part(folder, "GatherablePlant", Vector3.new(90 + index * 11, 1.5, 76 + (index % 3) * 9), Vector3.new(1.2, 1 + (index % 3), 1.2), Color3.fromHSV(index / 14, .42, .52 + (index % 2) * .15))
+		herb:SetAttribute("ItemId", plantData.id)
+		addPrompt(herb, "Zbierz", plantData.name, function(player)
+			State.addItem(player, plantData.id, 1)
+			ReplicatedStorage.Remotes.GameNotice:FireClient(player, "toast", "Zebrano: " .. plantData.name)
+			herb:Destroy()
+		end)
+	end
 	-- An owned object is a concrete witness/ownership test, rather than a global crime flag.
 	local ownedPlant = part(folder, "KordonHerb", Vector3.new(12, 2, 16), Vector3.new(1, 2, 1), Color3.fromRGB(113, 136, 61))
 	ownedPlant:SetAttribute("OwnerFaction", "kordon")
@@ -134,11 +144,29 @@ function World.build()
 		ReplicatedStorage.Remotes.GameNotice:FireClient(player, "toast", Crime.reportTheft(player, ownedPlant.Position, "kordon"))
 		ownedPlant:Destroy()
 	end)
-	local monster = Instance.new("Model")
-	monster.Name = "Żarłacz trzcin"; monster:SetAttribute("MonsterId", "monster_zarlacz"); monster:SetAttribute("Faction", "beast"); monster.Parent = folder
-	local body = part(monster, "HumanoidRootPart", Vector3.new(92, 5, 48), Vector3.new(5, 5, 7), Color3.fromRGB(49, 76, 55))
-	local hum = Instance.new("Humanoid"); hum.MaxHealth, hum.Health = 42, 42; hum.Parent = monster
-	table.insert(monsters, monster)
+	local locations = DataIndex.byId("world_locations")
+	local monsterData = DataIndex.byId("monsters")
+	local silhouettes = {pack = {Color3.fromRGB(49,76,55), Vector3.new(5,5,7)}, tank = {Color3.fromRGB(69,62,43), Vector3.new(8,7,8)}, ranged = {Color3.fromRGB(71,81,100), Vector3.new(4,7,4)}, nocturnal = {Color3.fromRGB(31,28,48), Vector3.new(4,6,6)}, ambush = {Color3.fromRGB(91,71,55), Vector3.new(7,5,5)}, caster = {Color3.fromRGB(105,50,110), Vector3.new(5,8,5)}}
+	for _, spawn in ipairs(DataIndex.records("monster_spawns")) do
+		local definition = monsterData[spawn.monsterId]
+		local location = locations[spawn.locationId]
+		if definition and location then
+			local base = Vector3.new(location.position[1], 5, location.position[3])
+			local visual = silhouettes[definition.behavior] or silhouettes.pack
+			for count = 1, spawn.count do
+				local monster = Instance.new("Model")
+				monster.Name = definition.name
+				monster:SetAttribute("MonsterId", definition.id)
+				monster:SetAttribute("SpawnId", spawn.id .. "_" .. tostring(count))
+				monster:SetAttribute("Behavior", definition.behavior)
+				monster:SetAttribute("Faction", "beast")
+				monster.Parent = folder
+				local body = part(monster, "HumanoidRootPart", base + Vector3.new(count * 7, 0, count * 4), visual[2], visual[1])
+				local hum = Instance.new("Humanoid"); hum.MaxHealth, hum.Health = definition.hp, definition.hp; hum.Parent = monster
+				table.insert(monsters, monster)
+			end
+		end
+	end
 	Lighting.ClockTime, Lighting.Brightness, Lighting.OutdoorAmbient = worldTime, 1.4, Color3.fromRGB(74, 69, 72)
 	for npcId in pairs(npcModels) do applySchedule(npcId) end
 end
@@ -152,9 +180,18 @@ local function tickMonster(monster: Model, dt: number): ()
 		local char = player.Character; local candidate = char and char:FindFirstChild("HumanoidRootPart") :: BasePart?
 		if candidate and (candidate.Position - root.Position).Magnitude < distance then closest, distance = candidate, (candidate.Position - root.Position).Magnitude end
 	end
-	if closest then
-		if distance > 5 then root.CFrame = root.CFrame:Lerp(CFrame.new(root.Position:Lerp(closest.Position, math.min(dt * 0.35, 1))), math.min(dt * 2, 1))
-		else local targetHum = closest.Parent and closest.Parent:FindFirstChildOfClass("Humanoid"); if targetHum then targetHum:TakeDamage(4) end end
+	if not closest then return end
+	local behavior = monster:GetAttribute("Behavior")
+	if behavior == "nocturnal" and worldTime > 5 and worldTime < 20 then return end
+	local targetHum = closest.Parent and closest.Parent:FindFirstChildOfClass("Humanoid")
+	if behavior == "ranged" then
+		if distance > 28 then root.Position = root.Position:Lerp(closest.Position, math.min(dt * .22, 1))
+		elseif distance > 8 and targetHum then targetHum:TakeDamage(3) end
+	elseif distance > 5 then
+		local speed = behavior == "tank" and .13 or .35
+		root.Position = root.Position:Lerp(closest.Position, math.min(dt * speed, 1))
+	elseif targetHum then
+		targetHum:TakeDamage(behavior == "tank" and 7 or 4)
 	end
 end
 

@@ -8,7 +8,7 @@ local notice=Instance.new("RemoteEvent");notice.Name="GameNotice";notice.Parent=
 World.build()
 local rate:{[Player]:{t:number,n:number}}={};local locks:{[Player]:any}={}
 local function allowed(p:Player):boolean local now=os.clock();local r=rate[p] or {t=now,n=0};if now-r.t>1 then r={t=now,n=0} end;r.n+=1;rate[p]=r;return r.n<=Constants.MAX_ACTIONS_PER_SECOND end
-local function targetById(id:string):Model? for _,x in ipairs(workspace.AshBorder:GetChildren()) do if x:IsA("Model") and (x:GetAttribute("MonsterId")==id or x:GetAttribute("NpcId")==id) then return x end end;return nil end
+local function targetById(id:string):Model? for _,x in ipairs(workspace.AshBorder:GetChildren()) do if x:IsA("Model") and (x:GetAttribute("SpawnId")==id or x:GetAttribute("MonsterId")==id or x:GetAttribute("NpcId")==id) then return x end end;return nil end
 local function sync(player:Player):() notice:FireClient(player,"state",State.get(player)) end
 Players.PlayerAdded:Connect(function(player) Save.load(player);player.CharacterAdded:Connect(function(char) task.wait();local h=char:FindFirstChildOfClass("Humanoid");if h then h.MaxHealth=State.get(player).stats.maxHp;h.Health=h.MaxHealth end;sync(player) end) end)
 Players.PlayerRemoving:Connect(function(p) Save.save(p);rate[p]=nil;locks[p]=nil end)

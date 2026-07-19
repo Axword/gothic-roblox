@@ -8,3 +8,5 @@ Dodatkowa regresja: u Żaby kupić skórowanie po zdobyciu PN/żużlu, zabić Ż
 Przepływ dialogowy: porozmawiać z Borzujem/Runa, wybrać kandydackie zlecenie, oddać raport, ukończyć dwa zlecenia i sprawdzić epilog po przysiędze. U Karpa: przyjąć/oddać `quest_side_09`, odebrać Żarzący Grot i zweryfikować koszt many. Wysłać indeks odpowiedzi poza 1–8 i bez aktywnego dialogu — stan nie może się zmienić.
 
 Cele kandydackie: przyjąć zadanie, użyć Promptu właściwego dowodu (albo zabić Żarłacza dla `quest_new_01`), sprawdzić stan `ready`, następnie oddać raport. Próba raportu przed celem musi pozostać bez nagrody.
+
+Fauna/flora: sprawdzić po jednym spawnie każdego gatunku, nocną bezczynność Nocnika za dnia, dystansowy atak Mgielnika, niezależne skórowanie dwóch osobników oraz zebranie każdej z 10 roślin.

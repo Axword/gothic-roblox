@@ -29,3 +29,8 @@
 - Pięć zadań kandydackich każdej frakcji ma teraz dane celu, typu i postępu zamiast samych opisów.
 - `QuestService` zapisuje postęp po stabilnym ID, blokuje raport przed realizacją celu i rozpoznaje stan `ready`.
 - Do świata dodano dziesięć obiektów dowodów/zleceń; pierwszy cel Wolnicy realizuje się przez pokonanie Żarłacza.
+
+## 2026-07-19 — Iteracja 7: fauna i zbieractwo w runtime
+- Wszystkie sześć gatunków stworów oraz ich spawny z JSON są reprezentowane na mapie, z osobnymi sylwetkami i podstawowymi zachowaniami pack/tank/ranged/nocturnal/ambush/caster.
+- Cele walki używają unikalnego `SpawnId`, więc obrażenia i skórowanie nie mieszają wielu osobników tego samego gatunku.
+- Wszystkie dziesięć gatunków roślin otrzymało zbieralne reprezentacje świata.

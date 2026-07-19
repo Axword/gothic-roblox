@@ -34,7 +34,7 @@ local function showCharacter()
 end
 local function targetId():string?
  local hit=mouse.Target;if not hit then return nil end;local model=hit:FindFirstAncestorOfClass("Model");if not model then return nil end
- return (model:GetAttribute("MonsterId") or model:GetAttribute("NpcId")) :: string?
+ return (model:GetAttribute("SpawnId") or model:GetAttribute("MonsterId") or model:GetAttribute("NpcId")) :: string?
 end
 notice.OnClientEvent:Connect(function(kind:string,value:any)
  if kind=="state" then state=value;local s=value.stats;hp.Text=string.format("HP %d | Mana %d | Lvl %d | %s",s.maxHp,s.mana,s.level,style);return end
