@@ -8,6 +8,7 @@ local DataIndex = require(ReplicatedStorage.Shared.DataIndex)
 local Quest = require(script.Parent.QuestService)
 local State = require(script.Parent.StateService)
 local Crime = require(script.Parent.CrimeService)
+local Trainers = require(script.Parent.TrainerService)
 
 local World = {}
 local worldTime = 8
@@ -80,6 +81,8 @@ local function spawnNpc(folder: Folder, data: any, index: number): ()
 	npcModels[data.id] = model
 	addPrompt(root, "Rozmawiaj", data.name, function(player)
 		if data.id == "npc_old_01" then Quest.start(player, "quest_main_arrival") end
+		local trainer = Trainers.forNpc(data.id)
+		if trainer then ReplicatedStorage.Remotes.GameNotice:FireClient(player, "trainer", trainer) end
 		ReplicatedStorage.Remotes.GameNotice:FireClient(player, "dialogue", data.dialogueId)
 	end)
 end
@@ -105,9 +108,13 @@ function World.build()
 	marker("work_wolnica", Vector3.new(308, 6, 10)); marker("fire_wolnica", Vector3.new(292, 6, 14)); marker("bed_wolnica", Vector3.new(287, 6, 5)); marker("safe_wolnica", Vector3.new(300, 6, 0))
 	marker("work_neutral", Vector3.new(145, 6, -25)); marker("fire_neutral", Vector3.new(150, 6, -35)); marker("bed_neutral", Vector3.new(140, 6, -42)); marker("safe_neutral", Vector3.new(145, 6, -35))
 	for i, npc in ipairs(DataIndex.records("npcs")) do spawnNpc(folder, npc, i) end
-	local chest = part(folder, "LockedChest", Vector3.new(62, 3, 28), Vector3.new(5, 5, 4), Color3.fromRGB(86, 56, 25))
-	chest:SetAttribute("ChestId", "chest_tutorial")
-	addPrompt(chest, "Otwórz (zamek I)", "Skrzynia poborcy", function(player) ReplicatedStorage.Remotes.GameNotice:FireClient(player, "lock", "chest_tutorial") end)
+	for _, chestData in ipairs(DataIndex.records("world_interactables")) do
+		local chest = part(folder, "LockedChest", Vector3.new(chestData.position[1], chestData.position[2], chestData.position[3]), Vector3.new(5, 5, 4), Color3.fromRGB(86, 56, 25))
+		chest:SetAttribute("ChestId", chestData.id)
+		addPrompt(chest, "Otwórz (zamek " .. tostring(chestData.lockDifficulty) .. ")", chestData.name, function(player)
+			ReplicatedStorage.Remotes.GameNotice:FireClient(player, "lock", chestData.id)
+		end)
+	end
 	-- An owned object is a concrete witness/ownership test, rather than a global crime flag.
 	local ownedPlant = part(folder, "KordonHerb", Vector3.new(12, 2, 16), Vector3.new(1, 2, 1), Color3.fromRGB(113, 136, 61))
 	ownedPlant:SetAttribute("OwnerFaction", "kordon")

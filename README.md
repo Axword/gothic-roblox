@@ -14,3 +14,5 @@ Oryginalny, polskojęzyczny action-RPG vertical slice dla Roblox Studio: dwa por
 
 ## Licencja / assety
 Cała aktualna geometria jest proceduralna z prymitywów Roblox. Nie zaimportowano obcych assetów; szczegóły w `THIRD_PARTY_ASSETS.md`.
+
+Dodatkowe skróty wycinka: `1/2/3` wybiera miecz/łuk/czar, `F` atakuje cel pod kursorem, `G` skóruje pokonaną bestię po szkoleniu, `T` kupuje wskazaną lekcję u otwartego nauczyciela. Zamki mają trzy poziomy i wymagają odpowiedniej rangi otwierania zamków.

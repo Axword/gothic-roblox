@@ -13,7 +13,7 @@ local hp=label("HP",UDim2.fromOffset(20,20),UDim2.fromOffset(260,32),"HP — odd
 local status=label("Status",UDim2.new(.25,0,.84,0),UDim2.new(.5,0,0,36),"Przybyłeś do Pogranicza Popiołu.");status.Visible=false
 local dialog=label("Dialogue",UDim2.new(.15,0,.62,0),UDim2.new(.7,0,0,150),"");dialog.Visible=false
 local panel=label("Panel",UDim2.new(.61,0,.08,0),UDim2.new(.36,0,.55,0),"");panel.Visible=false
-local state:any=nil;local style="sword";local itemId="sword_01"
+local state:any=nil;local activeTrainer:any=nil;local style="sword";local itemId="sword_01"
 local function toast(t:string) status.Text=t;status.Visible=true;task.delay(3,function() status.Visible=false end) end
 local function showInventory()
  if not state then return end
@@ -39,6 +39,7 @@ end
 notice.OnClientEvent:Connect(function(kind:string,value:any)
  if kind=="state" then state=value;local s=value.stats;hp.Text=string.format("HP %d | Mana %d | Lvl %d | %s",s.maxHp,s.mana,s.level,style);return end
  if kind=="toast" then toast(value)
+ elseif kind=="trainer" then activeTrainer=value;panel.Text="NAUCZYCIEL [T]\n"..table.concat(value.skills,", ").."\nT kupuje następną rangę pierwszej umiejętności.";panel.Visible=true
  elseif kind=="dialogue" then dialog.Text="Rozmowa: "..value.."\n[1] pytaj  [2] przyjmij pracę  [Esc] odejdź";dialog.Visible=true
  elseif kind=="lock" then action:FireServer("lockStart",value);toast("Zamek: czekaj na kierunek.")
  elseif kind=="lockStep" then toast("Zamek: naciśnij "..(value=="left" and "A" or "D")) end
@@ -49,8 +50,10 @@ bind("LockRight",Enum.KeyCode.D,function() action:FireServer("lockInput","right"
 bind("Save",Enum.KeyCode.F5,function() action:FireServer("save") end)
 bind("CloseDialog",Enum.KeyCode.Escape,function() dialog.Visible=false;panel.Visible=false end)
 bind("Inventory",Enum.KeyCode.I,showInventory);bind("Journal",Enum.KeyCode.J,showJournal);bind("Character",Enum.KeyCode.C,showCharacter)
+bind("Train",Enum.KeyCode.T,function() if activeTrainer then action:FireServer("train",{trainerId=activeTrainer.id,skill=activeTrainer.skills[1]}) else toast("Najpierw znajdź nauczyciela.") end end)
 bind("Sword",Enum.KeyCode.One,function() style="sword";itemId="sword_01";toast("Miecz gotów.") end)
 bind("Bow",Enum.KeyCode.Two,function() style="bow";itemId="bow_01";toast("Łuk gotów.") end)
 bind("Spell",Enum.KeyCode.Three,function() style="spell";itemId="spell_ember";toast("Żarzący Grot gotów.") end)
 bind("Attack",Enum.KeyCode.F,function() local id=targetId();if id then action:FireServer("attack",{targetId=id,style=style,itemId=itemId}) else toast("Nie masz celu.") end end)
+bind("Skin",Enum.KeyCode.G,function() local id=targetId();if id then action:FireServer("skin",id) else toast("Nie masz celu.") end end)
 action:FireServer("state")

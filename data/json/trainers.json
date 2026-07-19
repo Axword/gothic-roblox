@@ -10,7 +10,10 @@
       "limits": {
         "sword": 3
       },
-      "currency": "coin_zuzel"
+      "currency": "coin_zuzel",
+      "learningPointCost": 1,
+      "currencyCost": 20,
+      "requiresFaction": null
     },
     {
       "id": "trainer_rdzaw",
@@ -23,7 +26,10 @@
         "strength": 50,
         "lockpick": 3
       },
-      "currency": "coin_zuzel"
+      "currency": "coin_zuzel",
+      "learningPointCost": 1,
+      "currencyCost": 20,
+      "requiresFaction": null
     },
     {
       "id": "trainer_kret",
@@ -36,7 +42,10 @@
         "theft": 3,
         "lockpick": 3
       },
-      "currency": "coin_zuzel"
+      "currency": "coin_zuzel",
+      "learningPointCost": 1,
+      "currencyCost": 20,
+      "requiresFaction": null
     },
     {
       "id": "trainer_zaba",
@@ -49,7 +58,10 @@
         "skinning": 1,
         "bow": 3
       },
-      "currency": "coin_zuzel"
+      "currency": "coin_zuzel",
+      "learningPointCost": 1,
+      "currencyCost": 20,
+      "requiresFaction": null
     },
     {
       "id": "trainer_karp",
@@ -62,7 +74,10 @@
         "mana": 60,
         "spell": 2
       },
-      "currency": "coin_zuzel"
+      "currency": "coin_zuzel",
+      "learningPointCost": 1,
+      "currencyCost": 20,
+      "requiresFaction": null
     }
   ]
 }

@@ -17,3 +17,6 @@ Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następ
 
 ## Iteracja 3
 - Wycinek ma funkcjonalny obiekt cudzej własności i lokalne reakcje świadków (ostrzeżenie/alarm zależny od liczby świadków). Pełna eskalacja grzywny, walki i zwrotu pozostaje P0.
+
+## Iteracja 4
+- Nauczyciele, rangi zamków I–III i pozyskiwanie trofeów mają ścieżkę wykonania w runtime. UI treningu jest celowo skromne: T kupuje pierwszą umiejętność z listy aktualnego nauczyciela; wybór konkretnej umiejętności jest P1.

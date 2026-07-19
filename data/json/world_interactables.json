@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "chest_tutorial",
+      "name": "Skrzynia poborcy",
+      "position": [
+        62,
+        3,
+        28
+      ],
+      "lockDifficulty": 1,
+      "sequence": [
+        "left",
+        "right",
+        "left"
+      ],
+      "lootTableId": "loot_starter_chest",
+      "ownerFaction": "kordon"
+    },
+    {
+      "id": "chest_bagienne",
+      "name": "Skrzynia utopca",
+      "position": [
+        225,
+        3,
+        116
+      ],
+      "lockDifficulty": 2,
+      "sequence": [
+        "right",
+        "left",
+        "right",
+        "right"
+      ],
+      "lootTableId": "loot_beast",
+      "ownerFaction": "neutral"
+    },
+    {
+      "id": "chest_szczelina",
+      "name": "Skrzynia bez dna",
+      "position": [
+        155,
+        3,
+        -160
+      ],
+      "lockDifficulty": 3,
+      "sequence": [
+        "left",
+        "left",
+        "right",
+        "left",
+        "right"
+      ],
+      "lootTableId": "loot_beast",
+      "ownerFaction": "neutral"
+    }
+  ]
+}

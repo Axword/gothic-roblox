@@ -10,3 +10,7 @@
 - [ ] Minigra zamka z HUD i poziomami II/III; sleep/fast-forward.
 ## P2
 - [ ] Kontrolki mobilne, accessibility, lokalizacja poza PL, pooling.
+
+## Doprecyzowane po iteracji 4
+- [ ] Pełny ekran treningu z wyborem każdej umiejętności i warunkami questowymi.
+- [ ] Liniowa animacja/skinning loot table zależne od gatunku oraz odrodzenie potworów.
