@@ -56,3 +56,6 @@
 ## 2026-07-19 — Iteracja 12: menu główne
 - Dodano nakładkę menu głównego: Nowa gra, Wczytaj slot 1, Opcje i Wyjście.
 - Nowa gra resetuje wyłącznie serwerowy stan sesji; wyjście jest jawnym rozłączeniem gracza, a nie zaufaną akcją klienta.
+
+## 2026-07-19 — Audyt braków produkcyjnych
+- Dodano `IMPLEMENTATION_GAPS.md`: mierzalny rejestr P0/P1/P2 z bieżącym stanem, plikami startowymi i kryteriami akceptacji.

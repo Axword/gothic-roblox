@@ -40,3 +40,6 @@ Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następ
 - Zsynchronizowano opis sterowania, slotów i stanu magii z aktualnym kodem.
 - Dokumenty rozróżniają dane/prototypy obecne w repozytorium od funkcji potwierdzonych playtestem Studio.
 - Najważniejsza pozostała luka dokumentacyjna nie jest ukryta: brak opublikowanego testu oraz brak finalnego AI, animacji i UI produkcyjnego.
+
+## Rejestr domknięcia
+Pełny, utrzymywany rejestr braków oraz kolejność prac znajduje się w `IMPLEMENTATION_GAPS.md`. Jest źródłem prawdy dla elementów, których nie należy błędnie oznaczać jako ukończone.
