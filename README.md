@@ -20,3 +20,5 @@ Dodatkowe skróty wycinka: `1/2/3` wybiera miecz/łuk/czar, `F` atakuje cel pod 
 `P` otwiera aktualnie dostępne menu pauzy: Wznów, Zapisz, Wczytaj i lokalne opcje prezentacji. Zapis/Wczytanie jest zawsze ponownie autoryzowane przez serwer.
 
 Zapis obsługuje trzy sloty. Pauza udostępnia sloty 1 i 2 bezpośrednio, a slot 3 jest dostępny z dedykowanego przycisku; indeks slotu jest zawsze walidowany na serwerze. `O` przełącza czułość myszy i widoczność napisów dla bieżącej sesji.
+
+W ekwipunku `Z` wybiera następny posiadany przedmiot, a `X` używa mikstury/rośliny albo wyposaża broń czy pancerz. Przedmioty questowe pozostają chronione.

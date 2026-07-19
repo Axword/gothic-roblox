@@ -10,3 +10,5 @@ Save ma `schemaVersion`, ID zamiast Instance, domyślne wartości oraz bezpieczn
 `DialogueService` przechowuje sesję węzła per gracz. `dialogueChoice` przyjmuje wyłącznie indeks 1–8 aktualnej serwerowej odpowiedzi; akcje JSON są interpretowane na serwerze. To eliminuje możliwość wysłania przez klienta dowolnego ID questa lub frakcji.
 
 `SaveService` buduje klucz slotu wyłącznie na serwerze i zaciska indeks do 1–3. Remote `save/load` nie może wskazać własnego klucza DataStore. Ustawienia prezentacji są lokalne; nie są częścią stanu zaufanego gry.
+
+`InventoryService.activate` odszukuje przedmiot wyłącznie w indeksach wygenerowanych z JSON i dopiero potem sprawdza stan serwerowego ekwipunku. Klient nie może przekazać ilości, efektu, ceny ani wartości leczenia.

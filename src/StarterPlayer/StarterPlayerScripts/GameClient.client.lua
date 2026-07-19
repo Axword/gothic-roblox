@@ -19,13 +19,19 @@ local menuTitle=Instance.new("TextLabel");menuTitle.Size=UDim2.new(1,0,.18,0);me
 local function menuButton(text:string,y:number,callback:()->()):() local b=Instance.new("TextButton");b.Size=UDim2.new(.8,0,.13,0);b.Position=UDim2.new(.1,0,y,0);b.BackgroundColor3=Color3.fromRGB(65,50,40);b.TextColor3=Color3.fromRGB(240,224,190);b.Font=Enum.Font.Gotham;b.TextScaled=true;b.Text=text;b.Parent=menu;b.MouseButton1Click:Connect(callback) end
 menuButton("Wznów",.20,function() menu.Visible=false end);menuButton("Zapisz slot 1",.32,function() action:FireServer("save",1) end);menuButton("Wczytaj slot 1",.44,function() action:FireServer("load",1) end);menuButton("Zapisz slot 2",.56,function() action:FireServer("save",2) end);menuButton("Wczytaj slot 2",.68,function() action:FireServer("load",2) end);menuButton("Slot 3: F5/F9 + 3",.80,function() action:FireServer("save",3) end)
 local settings={master=1,sensitivity=1,subtitles=true}
-local state:any=nil;local activeTrainer:any=nil;local style="sword";local itemId="sword_01"
+local state:any=nil;local activeTrainer:any=nil;local selectedItem:string?=nil;local style="sword";local itemId="sword_01"
 local function toast(t:string) status.Text=t;status.Visible=true;task.delay(3,function() status.Visible=false end) end
 local function showInventory()
  if not state then return end
  local lines={"EKWIPUNEK  [I]", "Wyposażono: "..tostring(state.equipped or itemId), ""}
- for id,count in pairs(state.inventory or {}) do table.insert(lines,id.." ×"..tostring(count)) end
+ for id,count in pairs(state.inventory or {}) do table.insert(lines,(id==selectedItem and "> " or "  ")..id.." ×"..tostring(count)) end
+ table.insert(lines,"\n[Z] wybór  [X] użyj/wyposaż")
  panel.Text=table.concat(lines,"\n");panel.Visible=not panel.Visible
+end
+local function cycleItem()
+ if not state then return end
+ local ids={};for id,count in pairs(state.inventory or {}) do if count>0 then table.insert(ids,id) end end;table.sort(ids)
+ if #ids==0 then return end;local current=table.find(ids,selectedItem or "") or 0;selectedItem=ids[current%#ids+1];toast("Wybrano: "..selectedItem)
 end
 local function showJournal()
  if not state then return end
@@ -58,6 +64,7 @@ bind("Save",Enum.KeyCode.F5,function() action:FireServer("save") end)
 bind("CloseDialog",Enum.KeyCode.Escape,function() if dialog.Visible then action:FireServer("dialogueClose") end;dialog.Visible=false;panel.Visible=false end)
 bind("Inventory",Enum.KeyCode.I,showInventory);bind("Journal",Enum.KeyCode.J,showJournal);bind("Character",Enum.KeyCode.C,showCharacter);bind("Pause",Enum.KeyCode.P,function() menu.Visible=not menu.Visible;menuTitle.Text="POGRANICZE POPIOŁU" end);bind("Options",Enum.KeyCode.O,function() settings.sensitivity=settings.sensitivity==1 and .6 or 1;settings.subtitles=not settings.subtitles;UserInputService.MouseDeltaSensitivity=settings.sensitivity;toast(string.format("Opcje: czułość %.1f | napisy %s",settings.sensitivity,settings.subtitles and "tak" or "nie")) end)
 bind("Train",Enum.KeyCode.T,function() if activeTrainer then action:FireServer("train",{trainerId=activeTrainer.id,skill=activeTrainer.skills[1]}) else toast("Najpierw znajdź nauczyciela.") end end)
+bind("CycleItem",Enum.KeyCode.Z,cycleItem);bind("ActivateItem",Enum.KeyCode.X,function() if selectedItem then action:FireServer("inventoryActivate",selectedItem) else toast("Najpierw wybierz przedmiot: Z.") end end)
 bind("Sword",Enum.KeyCode.One,function() if dialog.Visible then action:FireServer("dialogueChoice",1) else style="sword";itemId="sword_01";toast("Miecz gotów.") end end)
 bind("Bow",Enum.KeyCode.Two,function() if dialog.Visible then action:FireServer("dialogueChoice",2) else style="bow";itemId="bow_01";toast("Łuk gotów.") end end)
 bind("Spell",Enum.KeyCode.Three,function() if dialog.Visible then action:FireServer("dialogueChoice",3) else style="spell";itemId="spell_ember";toast("Żarzący Grot gotów.") end end)

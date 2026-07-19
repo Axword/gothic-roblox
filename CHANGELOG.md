@@ -43,3 +43,7 @@
 - DataStore obsługuje trzy walidowane sloty per gracz; pauza udostępnia sloty 1–3.
 - Dodano proceduralne drzewa, skały kamieniołomu, wybrzeże i mgłę bagienną, bez zewnętrznych assetów.
 - Dodano lokalne przełączanie czułości myszy i napisów pod O.
+
+## 2026-07-19 — Iteracja 10: aktywny ekwipunek
+- Dodano serwerowy `InventoryService`: wybór/wyposażanie broni i pancerza, używanie mikstur oraz roślin, blokadę przedmiotów questowych.
+- Klient obsługuje cykl Z i aktywację X; serwer sprawdza posiadanie przedmiotu przed zmianą stanu.
