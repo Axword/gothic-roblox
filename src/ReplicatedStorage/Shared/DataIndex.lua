@@ -7,7 +7,7 @@ function DataIndex.records(moduleName: string): {any}
 end
 function DataIndex.byId(moduleName: string): {[string]: any}
 	local out = {}
-	for _, record in DataIndex.records(moduleName) do out[record.id] = record end
+	for _, record in ipairs(DataIndex.records(moduleName)) do out[record.id] = record end
 	return out
 end
 return DataIndex

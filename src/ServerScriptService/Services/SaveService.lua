@@ -6,7 +6,7 @@ local store=DataStoreService:GetDataStore("PopiolowePogranicze_Save_v1")
 local SaveService={}
 local function sanitize(raw:any):any
  if type(raw)~="table" or raw.schemaVersion~=1 then return State.default() end
- local default=State.default(); for key,value in default do if raw[key]==nil then raw[key]=value end end; return raw
+ local default=State.default(); for key,value in pairs(default) do if raw[key]==nil then raw[key]=value end end; return raw
 end
 function SaveService.load(player:Player):boolean
  local ok,data=pcall(function() return store:GetAsync("p_"..player.UserId) end)

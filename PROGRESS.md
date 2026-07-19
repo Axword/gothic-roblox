@@ -10,3 +10,10 @@
 
 ## Następny krok
 Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następnie wdrożyć prawdziwe AI/NPC schedules i ekrany ekwipunku/questów.
+
+## Iteracja 2
+- Wszystkie nazwane NPC są teraz spawnowane jako proceduralne reprezentacje runtime i odczytują marker aktywności z `npc_schedules.json`.
+- Minimalny klient ma panele I/J/C i wybór stylu 1/2/3 z atakiem F. To nadal prototyp UI, nie finalny interfejs.
+
+## Iteracja 3
+- Wycinek ma funkcjonalny obiekt cudzej własności i lokalne reakcje świadków (ostrzeżenie/alarm zależny od liczby świadków). Pełna eskalacja grzywny, walki i zwrotu pozostaje P0.
