@@ -2,10 +2,10 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Formulae = require(ReplicatedStorage.Shared.Formulae)
-export type PlayerState = {schemaVersion:number, stats:{level:number,xp:number,learningPoints:number,strength:number,dexterity:number,mana:number,maxHp:number,vitality:number}, skills:{[string]:number}, inventory:{[string]:number}, equipped:string?, quests:{[string]:string}, flags:{[string]:boolean}, reputation:{[string]:number}, openedChests:{[string]:boolean}, defeated:{[string]:boolean}, faction:string?, worldTime:number}
+export type PlayerState = {schemaVersion:number, stats:{level:number,xp:number,learningPoints:number,strength:number,dexterity:number,mana:number,maxHp:number,vitality:number}, skills:{[string]:number}, inventory:{[string]:number}, equipped:string?, quests:{[string]:string}, questProgress:{[string]:number}, flags:{[string]:boolean}, reputation:{[string]:number}, openedChests:{[string]:boolean}, defeated:{[string]:boolean}, faction:string?, worldTime:number}
 local StateService = {}; local states:{[Player]:PlayerState} = {}
 function StateService.default(): PlayerState
-	return {schemaVersion=1, stats={level=1,xp=0,learningPoints=0,strength=5,dexterity=5,mana=20,maxHp=Formulae.maxHp(1,0),vitality=0},skills={sword=0,bow=0,lockpick=1,theft=0,skinning=0,spell=0},inventory={sword_01=1,bow_01=1,arrow_iron=12,lockpick=3,coin_zuzel=25},equipped="sword_01",quests={},flags={},reputation={kordon=0,wolnica=0},openedChests={},defeated={},worldTime=8}
+	return {schemaVersion=1, stats={level=1,xp=0,learningPoints=0,strength=5,dexterity=5,mana=20,maxHp=Formulae.maxHp(1,0),vitality=0},skills={sword=0,bow=0,lockpick=1,theft=0,skinning=0,spell=0},inventory={sword_01=1,bow_01=1,arrow_iron=12,lockpick=3,coin_zuzel=25},equipped="sword_01",quests={},questProgress={},flags={},reputation={kordon=0,wolnica=0},openedChests={},defeated={},worldTime=8}
 end
 function StateService.get(player:Player):PlayerState return states[player] or StateService.default() end
 function StateService.set(player:Player, state:PlayerState) states[player]=state end

@@ -3,12 +3,28 @@ local ReplicatedStorage=game:GetService("ReplicatedStorage")
 local DataIndex=require(ReplicatedStorage.Shared.DataIndex)
 local State=require(script.Parent.StateService)
 local QuestService={}; local quests:{[string]:any}={}
-for _, name in {"quests_main","quests_old_faction","quests_new_faction","quests_side"} do for id,q in pairs(DataIndex.byId(name)) do quests[id]=q end end
+for _, name in ipairs({"quests_main","quests_old_faction","quests_new_faction","quests_side"}) do for id,q in pairs(DataIndex.byId(name)) do quests[id]=q end end
 function QuestService.start(player:Player,id:string):boolean
- local s=State.get(player); if not quests[id] or s.quests[id] then return false end; s.quests[id]="active"; return true
+ local s=State.get(player); if not quests[id] or s.quests[id] then return false end;s.quests[id]="active";s.questProgress[id]=0;return true
+end
+function QuestService.objective(player:Player, targetId:string): (boolean,string?)
+ local s=State.get(player)
+ for questId,status in pairs(s.quests) do
+  local q=quests[questId]
+  if status=="active" and q and q.objectives then
+   local objective=q.objectives[1]
+   if objective and objective.targetId==targetId then
+    s.questProgress[questId]=math.min((s.questProgress[questId] or 0)+1,objective.count or 1)
+    if s.questProgress[questId]>=(objective.count or 1) then s.quests[questId]="ready";return true,"Cel wykonany. Wróć po zapłatę." end
+    return true,"Postęp zadania."
+   end
+  end
+ end
+ return false,nil
 end
 function QuestService.complete(player:Player,id:string):boolean
- local s=State.get(player);local q=quests[id];if not q or s.quests[id]~="active" then return false end
+ local s=State.get(player);local q=quests[id];if not q or (s.quests[id]~="active" and s.quests[id]~="ready") then return false end
+ if q.objectives and s.quests[id]~="ready" then return false end
  s.quests[id]="complete"; State.addXp(player,(q.rewards and q.rewards.xp) or 0); if q.rewards and q.rewards.coin_zuzel then State.addItem(player,"coin_zuzel",q.rewards.coin_zuzel) end; return true
 end
 function QuestService.chooseFaction(player:Player,faction:string):boolean

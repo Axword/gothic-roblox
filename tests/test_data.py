@@ -14,7 +14,7 @@ assert len(records('items_plants.json')) >= 10
 assert len(records('items_potions.json')) >= 6
 assert len(records('monsters.json')) >= 6
 assert len(records('quests_old_faction.json')) >= 5 and len(records('quests_new_faction.json')) >= 5 and len(records('quests_side.json')) >= 10
-assert {x['lockDifficulty'] for x in records('world_interactables.json')} == {1, 2, 3}
+assert {x['lockDifficulty'] for x in records('world_interactables.json') if 'lockDifficulty' in x} == {1, 2, 3}
 assert len(records('trainers.json')) >= 5
 assert any('chooseFaction:' in str(x) for x in records('dialogues_old.json'))
 assert any('learnSpell:spell_ember' in str(x) for x in records('dialogues_neutral.json'))

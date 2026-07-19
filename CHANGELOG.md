@@ -24,3 +24,8 @@
 - Dodano serwerowy `DialogueService`: klient wybiera numer odpowiedzi, ale węzły, akcje questów i wybór frakcji zatwierdza serwer.
 - Borzuj i Runa prowadzą działający skrócony łańcuch kandydacki do dwóch zadań i wyboru frakcji; epilog jest zależny od strony.
 - Pustelnik Karp oferuje zadanie i dopiero po jego ukończeniu uczy Żarzącego Grotu.
+
+## 2026-07-19 — Iteracja 6: cele terenowe questów
+- Pięć zadań kandydackich każdej frakcji ma teraz dane celu, typu i postępu zamiast samych opisów.
+- `QuestService` zapisuje postęp po stabilnym ID, blokuje raport przed realizacją celu i rozpoznaje stan `ready`.
+- Do świata dodano dziesięć obiektów dowodów/zleceń; pierwszy cel Wolnicy realizuje się przez pokonanie Żarłacza.

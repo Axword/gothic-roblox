@@ -23,3 +23,6 @@ Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następ
 
 ## Iteracja 5
 - Dialogi nie są już wyłącznie etykietą: serwer przechowuje aktywny węzeł i wykonuje akcje `startQuest`, `completeQuest`, `chooseFaction` oraz `learnSpell`. Obecne dialogi liderów świadomie skracają etapowe cele do raportu, aby umożliwić test pełnego przepływu; docelowe cele terenowe pozostają P0.
+
+## Iteracja 6
+- Wszystkie 10 kandydackich questów ma możliwy do wykonania, serwerowo rejestrowany cel terenowy. Dwa pierwsze każdej frakcji są podłączone do dialogu lidera i pełnego wyboru frakcji; pozostałe cele są przygotowane w danych/world markerach, a ich przyjęcie zostanie połączone z odpowiednimi zleceniodawcami.

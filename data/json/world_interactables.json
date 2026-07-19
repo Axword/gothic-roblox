@@ -54,6 +54,106 @@
       ],
       "lootTableId": "loot_beast",
       "ownerFaction": "neutral"
+    },
+    {
+      "id": "objective_old_01",
+      "name": "Dowód Kordonu 1",
+      "position": [
+        28,
+        3,
+        47
+      ],
+      "kind": "questObjective"
+    },
+    {
+      "id": "objective_old_02",
+      "name": "Dowód Kordonu 2",
+      "position": [
+        36,
+        3,
+        54
+      ],
+      "kind": "questObjective"
+    },
+    {
+      "id": "objective_old_03",
+      "name": "Dowód Kordonu 3",
+      "position": [
+        44,
+        3,
+        61
+      ],
+      "kind": "questObjective"
+    },
+    {
+      "id": "objective_old_04",
+      "name": "Dowód Kordonu 4",
+      "position": [
+        52,
+        3,
+        68
+      ],
+      "kind": "questObjective"
+    },
+    {
+      "id": "objective_old_05",
+      "name": "Dowód Kordonu 5",
+      "position": [
+        60,
+        3,
+        75
+      ],
+      "kind": "questObjective"
+    },
+    {
+      "id": "objective_new_01",
+      "name": "Zlecenie Wolnicy 1",
+      "position": [
+        278,
+        3,
+        47
+      ],
+      "kind": "questObjective"
+    },
+    {
+      "id": "objective_new_02",
+      "name": "Zlecenie Wolnicy 2",
+      "position": [
+        286,
+        3,
+        54
+      ],
+      "kind": "questObjective"
+    },
+    {
+      "id": "objective_new_03",
+      "name": "Zlecenie Wolnicy 3",
+      "position": [
+        294,
+        3,
+        61
+      ],
+      "kind": "questObjective"
+    },
+    {
+      "id": "objective_new_04",
+      "name": "Zlecenie Wolnicy 4",
+      "position": [
+        302,
+        3,
+        68
+      ],
+      "kind": "questObjective"
+    },
+    {
+      "id": "objective_new_05",
+      "name": "Zlecenie Wolnicy 5",
+      "position": [
+        310,
+        3,
+        75
+      ],
+      "kind": "questObjective"
     }
   ]
 }

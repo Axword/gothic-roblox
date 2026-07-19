@@ -4,6 +4,7 @@ local ReplicatedStorage=game:GetService("ReplicatedStorage")
 local Formulae=require(ReplicatedStorage.Shared.Formulae)
 local DataIndex=require(ReplicatedStorage.Shared.DataIndex)
 local State=require(script.Parent.StateService)
+local Quest=require(script.Parent.QuestService)
 local Combat={};local swords=DataIndex.byId("items_weapons_swords");local bows=DataIndex.byId("items_weapons_bows");local spells=DataIndex.byId("spells")
 local function root(model:Model):BasePart? return model:FindFirstChild("HumanoidRootPart") :: BasePart? end
 function Combat.skinTarget(player:Player,target:Model): (boolean,string)
@@ -22,6 +23,6 @@ function Combat.damageTarget(player:Player,target:Model,style:string,id:string):
  elseif style=="bow" then local weapon=bows[id];if not weapon or (s.inventory.arrow_iron or 0)<1 then return false end;s.inventory.arrow_iron-=1;damage=Formulae.bowDamage(weapon.damage,s.stats.dexterity)
  elseif style=="spell" then local spell=spells[id];local requiredRank=(id=="spell_frost" and 2 or 1);if not spell or (s.skills.spell or 0)<requiredRank or s.stats.mana<spell.manaCost then return false end;s.stats.mana-=spell.manaCost;damage=spell.damage
  else return false end
- hum:TakeDamage(damage);if hum.Health<=0 then State.addXp(player,25) end;return true
+ hum:TakeDamage(damage);if hum.Health<=0 then State.addXp(player,25);local monsterId=target:GetAttribute("MonsterId");if type(monsterId)=="string" then Quest.objective(player,monsterId) end end;return true
 end
 return Combat

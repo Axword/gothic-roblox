@@ -109,12 +109,22 @@ function World.build()
 	marker("work_wolnica", Vector3.new(308, 6, 10)); marker("fire_wolnica", Vector3.new(292, 6, 14)); marker("bed_wolnica", Vector3.new(287, 6, 5)); marker("safe_wolnica", Vector3.new(300, 6, 0))
 	marker("work_neutral", Vector3.new(145, 6, -25)); marker("fire_neutral", Vector3.new(150, 6, -35)); marker("bed_neutral", Vector3.new(140, 6, -42)); marker("safe_neutral", Vector3.new(145, 6, -35))
 	for i, npc in ipairs(DataIndex.records("npcs")) do spawnNpc(folder, npc, i) end
-	for _, chestData in ipairs(DataIndex.records("world_interactables")) do
-		local chest = part(folder, "LockedChest", Vector3.new(chestData.position[1], chestData.position[2], chestData.position[3]), Vector3.new(5, 5, 4), Color3.fromRGB(86, 56, 25))
-		chest:SetAttribute("ChestId", chestData.id)
-		addPrompt(chest, "Otwórz (zamek " .. tostring(chestData.lockDifficulty) .. ")", chestData.name, function(player)
-			ReplicatedStorage.Remotes.GameNotice:FireClient(player, "lock", chestData.id)
-		end)
+	for _, entry in ipairs(DataIndex.records("world_interactables")) do
+		local position = Vector3.new(entry.position[1], entry.position[2], entry.position[3])
+		if entry.lockDifficulty then
+			local chest = part(folder, "LockedChest", position, Vector3.new(5, 5, 4), Color3.fromRGB(86, 56, 25))
+			chest:SetAttribute("ChestId", entry.id)
+			addPrompt(chest, "Otwórz (zamek " .. tostring(entry.lockDifficulty) .. ")", entry.name, function(player)
+				ReplicatedStorage.Remotes.GameNotice:FireClient(player, "lock", entry.id)
+			end)
+		elseif entry.kind == "questObjective" then
+			local clue = part(folder, "QuestClue", position, Vector3.new(2, 3, 2), Color3.fromRGB(135, 112, 53))
+			clue:SetAttribute("ObjectiveId", entry.id)
+			addPrompt(clue, "Zbadaj", entry.name, function(player)
+				local ok,message = Quest.objective(player, entry.id)
+				ReplicatedStorage.Remotes.GameNotice:FireClient(player, "toast", message or (ok and "Zapisano." or "To nie jest teraz twoja sprawa."))
+			end)
+		end
 	end
 	-- An owned object is a concrete witness/ownership test, rather than a global crime flag.
 	local ownedPlant = part(folder, "KordonHerb", Vector3.new(12, 2, 16), Vector3.new(1, 2, 1), Color3.fromRGB(113, 136, 61))

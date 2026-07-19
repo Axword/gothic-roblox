@@ -4,3 +4,5 @@ Każdy rekord ma unikalne małe ID `snake_case`; `record.schema.json` wymaga ID,
 Kategorie `items_*`, `npcs`, `npc_schedules`, `monsters`, `monster_spawns`, `quests_*`, `dialogues_*`, `world_locations`, `loot_tables`, `trainers`, `spells`, `balance` są wersjonowane (`schemaVersion: 1`). `savegame.json` jest wyłącznie dokumentacją serializacji i nie jest runtime source.
 
 `world_interactables.json` opisuje trwałe obiekty świata (pozycja, właściciel, poziom zamka, sekwencja i tabela łupu). `trainers.json` określa nauczyciela, dozwolone umiejętności, limity, PN oraz koszt waluty. Nie są one ufne wobec klienta: serwer ponownie sprawdza ID, odległość, limit i stan gracza.
+
+Quest może mieć `objectives`: stabilne ID celu, `kind`, `targetId` i `count`. Runtime zapisuje licznik oddzielnie w `questProgress`; stan zadania przechodzi `active → ready → complete`. Marker `questObjective` w `world_interactables` jest reprezentacją celu eksploracyjnego, a potwór może zgłosić cel po śmierci.
