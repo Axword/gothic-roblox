@@ -3,6 +3,7 @@
 local Players=game:GetService("Players")
 local ReplicatedStorage=game:GetService("ReplicatedStorage")
 local ContextActionService=game:GetService("ContextActionService")
+local UserInputService=game:GetService("UserInputService")
 local player=Players.LocalPlayer;local mouse=player:GetMouse()
 local remotes=ReplicatedStorage:WaitForChild("Remotes");local action=remotes:WaitForChild("GameAction") :: RemoteEvent;local notice=remotes:WaitForChild("GameNotice") :: RemoteEvent
 local gui=Instance.new("ScreenGui");gui.Name="AshBorderUI";gui.ResetOnSpawn=false;gui.IgnoreGuiInset=true;gui.Parent=player:WaitForChild("PlayerGui")
@@ -16,9 +17,8 @@ local panel=label("Panel",UDim2.new(.61,0,.08,0),UDim2.new(.36,0,.55,0),"");pane
 local menu=Instance.new("Frame");menu.Name="PauseMenu";menu.Position=UDim2.new(.35,0,.22,0);menu.Size=UDim2.new(.3,0,.52,0);menu.BackgroundColor3=Color3.fromRGB(18,17,18);menu.Visible=false;menu.Parent=gui
 local menuTitle=Instance.new("TextLabel");menuTitle.Size=UDim2.new(1,0,.18,0);menuTitle.BackgroundTransparency=1;menuTitle.Text="POGRANICZE POPIOŁU";menuTitle.TextColor3=Color3.fromRGB(226,214,181);menuTitle.Font=Enum.Font.GothamBold;menuTitle.TextScaled=true;menuTitle.Parent=menu
 local function menuButton(text:string,y:number,callback:()->()):() local b=Instance.new("TextButton");b.Size=UDim2.new(.8,0,.13,0);b.Position=UDim2.new(.1,0,y,0);b.BackgroundColor3=Color3.fromRGB(65,50,40);b.TextColor3=Color3.fromRGB(240,224,190);b.Font=Enum.Font.Gotham;b.TextScaled=true;b.Text=text;b.Parent=menu;b.MouseButton1Click:Connect(callback) end
-menuButton("Wznów",.22,function() menu.Visible=false end);menuButton("Zapisz",.38,function() action:FireServer("save") end);menuButton("Wczytaj",.54,function() action:FireServer("load") end)
+menuButton("Wznów",.20,function() menu.Visible=false end);menuButton("Zapisz slot 1",.32,function() action:FireServer("save",1) end);menuButton("Wczytaj slot 1",.44,function() action:FireServer("load",1) end);menuButton("Zapisz slot 2",.56,function() action:FireServer("save",2) end);menuButton("Wczytaj slot 2",.68,function() action:FireServer("load",2) end);menuButton("Slot 3: F5/F9 + 3",.80,function() action:FireServer("save",3) end)
 local settings={master=1,sensitivity=1,subtitles=true}
-menuButton("Opcje: głośność / czułość",.70,function() settings.master=math.max(0,settings.master-.25);settings.sensitivity=settings.sensitivity==1 and .6 or 1;menuTitle.Text=string.format("OPCJE  Głośność %.0f%%  Czułość %.1f",settings.master*100,settings.sensitivity) end)
 local state:any=nil;local activeTrainer:any=nil;local style="sword";local itemId="sword_01"
 local function toast(t:string) status.Text=t;status.Visible=true;task.delay(3,function() status.Visible=false end) end
 local function showInventory()
@@ -56,7 +56,7 @@ bind("LockLeft",Enum.KeyCode.A,function() action:FireServer("lockInput","left") 
 bind("LockRight",Enum.KeyCode.D,function() action:FireServer("lockInput","right") end)
 bind("Save",Enum.KeyCode.F5,function() action:FireServer("save") end)
 bind("CloseDialog",Enum.KeyCode.Escape,function() if dialog.Visible then action:FireServer("dialogueClose") end;dialog.Visible=false;panel.Visible=false end)
-bind("Inventory",Enum.KeyCode.I,showInventory);bind("Journal",Enum.KeyCode.J,showJournal);bind("Character",Enum.KeyCode.C,showCharacter);bind("Pause",Enum.KeyCode.P,function() menu.Visible=not menu.Visible;menuTitle.Text="POGRANICZE POPIOŁU" end)
+bind("Inventory",Enum.KeyCode.I,showInventory);bind("Journal",Enum.KeyCode.J,showJournal);bind("Character",Enum.KeyCode.C,showCharacter);bind("Pause",Enum.KeyCode.P,function() menu.Visible=not menu.Visible;menuTitle.Text="POGRANICZE POPIOŁU" end);bind("Options",Enum.KeyCode.O,function() settings.sensitivity=settings.sensitivity==1 and .6 or 1;settings.subtitles=not settings.subtitles;UserInputService.MouseDeltaSensitivity=settings.sensitivity;toast(string.format("Opcje: czułość %.1f | napisy %s",settings.sensitivity,settings.subtitles and "tak" or "nie")) end)
 bind("Train",Enum.KeyCode.T,function() if activeTrainer then action:FireServer("train",{trainerId=activeTrainer.id,skill=activeTrainer.skills[1]}) else toast("Najpierw znajdź nauczyciela.") end end)
 bind("Sword",Enum.KeyCode.One,function() if dialog.Visible then action:FireServer("dialogueChoice",1) else style="sword";itemId="sword_01";toast("Miecz gotów.") end end)
 bind("Bow",Enum.KeyCode.Two,function() if dialog.Visible then action:FireServer("dialogueChoice",2) else style="bow";itemId="bow_01";toast("Łuk gotów.") end end)

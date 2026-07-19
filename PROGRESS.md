@@ -32,3 +32,6 @@ Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następ
 
 ## Iteracja 8
 - Wszystkie deklarowane questy są teraz możliwe do przyjęcia przez dialog i raportowania; questy kandydackie wymagają dodatkowo własnego celu terenowego. Menu pauzy działa jako nakładka z Zapisz/Wczytaj; osobne menu startowe, sloty i pełne opcje sprzętowe nadal są P1/P0.
+
+## Iteracja 9
+- Zapis ma trzy sloty (`p_<UserId>_slot_1..3`) i bezpiecznie ogranicza wybrany indeks. Środowisko otrzymało proceduralny dressing oraz mgłę cząsteczkową. Ustawienia są wciąż lokalne dla sesji, a nie serializowane.

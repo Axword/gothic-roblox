@@ -38,3 +38,8 @@
 ## 2026-07-19 — Iteracja 8: kompletne podłączenie zleceń i pauza
 - Wszystkie pięć kandydackich questów każdej frakcji otrzymało zleceniodawcę dialogowego; dziesięć zadań pobocznych ma własne punkty przyjęcia/raportu.
 - Dodano minimalistyczne menu pauzy z zapisem/wczytaniem oraz lokalnymi ustawieniami prezentacji.
+
+## 2026-07-19 — Iteracja 9: sloty zapisu i dressing środowiska
+- DataStore obsługuje trzy walidowane sloty per gracz; pauza udostępnia sloty 1–3.
+- Dodano proceduralne drzewa, skały kamieniołomu, wybrzeże i mgłę bagienną, bez zewnętrznych assetów.
+- Dodano lokalne przełączanie czułości myszy i napisów pod O.

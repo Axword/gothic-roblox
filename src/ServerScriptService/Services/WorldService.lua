@@ -167,6 +167,16 @@ function World.build()
 			end
 		end
 	end
+	-- Hand-built low-poly dressing: trunks, crowns, quarry rocks and a dark coast make biome silhouettes readable without external assets.
+	for i = 1, 32 do
+		local x,z = -70 + (i * 31) % 430, 55 + (i * 47) % 190
+		local trunk = part(folder,"TreeTrunk",Vector3.new(x,5,z),Vector3.new(2,10,2),Color3.fromRGB(55,40,29));trunk.Material=Enum.Material.Wood
+		local crown = part(folder,"TreeCrown",Vector3.new(x,12,z),Vector3.new(9,7,9),Color3.fromRGB(38,62,42));crown.Shape=Enum.PartType.Ball
+	end
+	for i = 1, 18 do local rock=part(folder,"QuarryRock",Vector3.new(-145+(i%6)*13,3,86+math.floor(i/6)*14),Vector3.new(5+(i%3),5,4+(i%2)),Color3.fromRGB(69,67,61));rock.Orientation=Vector3.new(i*9,i*17,0) end
+	local sea=part(folder,"ColdSea",Vector3.new(350,-1,-115),Vector3.new(130,2,110),Color3.fromRGB(34,61,73));sea.Material=Enum.Material.Glass;sea.Transparency=.25
+	local mistAnchor=part(folder,"SwampMist",Vector3.new(230,4,130),Vector3.new(1,1,1),Color3.fromRGB(0,0,0));mistAnchor.Transparency=1
+	local mist=Instance.new("ParticleEmitter");mist.Texture="rbxasset://textures/particles/smoke_main.dds";mist.Color=ColorSequence.new(Color3.fromRGB(130,145,125));mist.Rate=9;mist.Lifetime=NumberRange.new(5,9);mist.Speed=NumberRange.new(.4,1.2);mist.Size=NumberSequence.new(5);mist.Parent=mistAnchor
 	Lighting.ClockTime, Lighting.Brightness, Lighting.OutdoorAmbient = worldTime, 1.4, Color3.fromRGB(74, 69, 72)
 	for npcId in pairs(npcModels) do applySchedule(npcId) end
 end

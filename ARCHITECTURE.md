@@ -8,3 +8,5 @@ Save ma `schemaVersion`, ID zamiast Instance, domyślne wartości oraz bezpieczn
 `TrainerService` zatwierdza naukę wyłącznie przy rzeczywistym NPC; `CrimeService` używa zasięgu i raycastu świadka; `CombatService` sprawdza śmierć bestii oraz rangę skórowania. Zamki odnoszą się do `world_interactables` po stabilnym ID i nie wydają łupu drugi raz.
 
 `DialogueService` przechowuje sesję węzła per gracz. `dialogueChoice` przyjmuje wyłącznie indeks 1–8 aktualnej serwerowej odpowiedzi; akcje JSON są interpretowane na serwerze. To eliminuje możliwość wysłania przez klienta dowolnego ID questa lub frakcji.
+
+`SaveService` buduje klucz slotu wyłącznie na serwerze i zaciska indeks do 1–3. Remote `save/load` nie może wskazać własnego klucza DataStore. Ustawienia prezentacji są lokalne; nie są częścią stanu zaufanego gry.

@@ -18,3 +18,5 @@ Cała aktualna geometria jest proceduralna z prymitywów Roblox. Nie zaimportowa
 Dodatkowe skróty wycinka: `1/2/3` wybiera miecz/łuk/czar, `F` atakuje cel pod kursorem, `G` skóruje pokonaną bestię po szkoleniu, `T` kupuje wskazaną lekcję u otwartego nauczyciela. Zamki mają trzy poziomy i wymagają odpowiedniej rangi otwierania zamków.
 
 `P` otwiera aktualnie dostępne menu pauzy: Wznów, Zapisz, Wczytaj i lokalne opcje prezentacji. Zapis/Wczytanie jest zawsze ponownie autoryzowane przez serwer.
+
+Zapis obsługuje trzy sloty. Pauza udostępnia sloty 1 i 2 bezpośrednio, a slot 3 jest dostępny z dedykowanego przycisku; indeks slotu jest zawsze walidowany na serwerze. `O` przełącza czułość myszy i widoczność napisów dla bieżącej sesji.
