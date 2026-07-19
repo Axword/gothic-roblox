@@ -18,3 +18,4 @@
 ## Doprecyzowanie po iteracji 11
 - [ ] Zastąpić proceduralne pozy Motor6D eksportowanymi animacjami R15 z Animator/Animation Editor i dodać reakcje trafienia/śmierci.
 - [ ] Przetestować combo, blok, unik i alarm w Studio pod opóźnieniem sieciowym.
+- [ ] Uzupełnić ekran opcji o grupy audio, jakość grafiki oraz dostępne w Roblox ustawienia renderowania; obecnie działa czułość i napisy.

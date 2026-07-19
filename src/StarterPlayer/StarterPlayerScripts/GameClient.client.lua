@@ -20,6 +20,14 @@ local menuTitle=Instance.new("TextLabel");menuTitle.Size=UDim2.new(1,0,.18,0);me
 local function menuButton(text:string,y:number,callback:()->()):() local b=Instance.new("TextButton");b.Size=UDim2.new(.8,0,.13,0);b.Position=UDim2.new(.1,0,y,0);b.BackgroundColor3=Color3.fromRGB(65,50,40);b.TextColor3=Color3.fromRGB(240,224,190);b.Font=Enum.Font.Gotham;b.TextScaled=true;b.Text=text;b.Parent=menu;b.MouseButton1Click:Connect(callback) end
 menuButton("Wznów",.20,function() menu.Visible=false end);menuButton("Zapisz slot 1",.32,function() action:FireServer("save",1) end);menuButton("Wczytaj slot 1",.44,function() action:FireServer("load",1) end);menuButton("Zapisz slot 2",.56,function() action:FireServer("save",2) end);menuButton("Wczytaj slot 2",.68,function() action:FireServer("load",2) end);menuButton("Slot 3: F5/F9 + 3",.80,function() action:FireServer("save",3) end)
 local settings={master=1,sensitivity=1,subtitles=true}
+-- Main menu is intentionally separate from pause: it is accessible before the first action and after an explicit exit.
+local mainMenu=Instance.new("Frame");mainMenu.Name="MainMenu";mainMenu.Size=UDim2.fromScale(1,1);mainMenu.BackgroundColor3=Color3.fromRGB(13,13,15);mainMenu.BackgroundTransparency=.08;mainMenu.Parent=gui
+local mainTitle=Instance.new("TextLabel");mainTitle.Size=UDim2.new(.7,0,.18,0);mainTitle.Position=UDim2.new(.15,0,.14,0);mainTitle.BackgroundTransparency=1;mainTitle.Text="POGRANICZE\nPOPIOŁU";mainTitle.TextColor3=Color3.fromRGB(226,214,181);mainTitle.Font=Enum.Font.GothamBold;mainTitle.TextScaled=true;mainTitle.Parent=mainMenu
+local function mainButton(text:string,y:number,callback:()->()):() local b=Instance.new("TextButton");b.Size=UDim2.new(.28,0,.075,0);b.Position=UDim2.new(.36,0,y,0);b.BackgroundColor3=Color3.fromRGB(65,50,40);b.TextColor3=Color3.fromRGB(240,224,190);b.Font=Enum.Font.GothamBold;b.TextScaled=true;b.Text=text;b.Parent=mainMenu;b.MouseButton1Click:Connect(callback) end
+mainButton("Nowa gra",.40,function() action:FireServer("newGame");mainMenu.Visible=false end)
+mainButton("Wczytaj slot 1",.49,function() action:FireServer("load",1);mainMenu.Visible=false end)
+mainButton("Opcje",.58,function() settings.sensitivity=settings.sensitivity==1 and .6 or 1;settings.subtitles=not settings.subtitles;UserInputService.MouseDeltaSensitivity=settings.sensitivity;mainTitle.Text="OPCJE\nCzułość: "..settings.sensitivity.." | Napisy: "..(settings.subtitles and "tak" or "nie") end)
+mainButton("Wyjście",.67,function() action:FireServer("exit") end)
 local state:any=nil;local activeTrainer:any=nil;local selectedItem:string?=nil;local style="sword";local itemId="sword_01"
 local function toast(t:string) status.Text=t;status.Visible=true;task.delay(3,function() status.Visible=false end) end
 local function showInventory()

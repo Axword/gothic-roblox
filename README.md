@@ -22,3 +22,5 @@ Dodatkowe skróty wycinka: `1/2/3` wybiera miecz/łuk/czar, `F` atakuje cel pod 
 Zapis obsługuje trzy sloty. Indeks slotu jest zawsze walidowany na serwerze. `O` przełącza czułość myszy i widoczność napisów dla bieżącej sesji; są to ustawienia lokalne, nie trwały profil.
 
 W ekwipunku `Z` wybiera następny posiadany przedmiot, a `X` używa mikstury/rośliny albo wyposaża broń czy pancerz. Przedmioty questowe pozostają chronione.
+
+Przy wejściu wyświetla się menu główne: **Nowa gra** resetuje bieżący stan sesji, **Wczytaj slot 1** ładuje zapis, **Opcje** zmienia lokalną czułość/napisy, a **Wyjście** rozłącza z doświadczenia. Po wyjściu z menu `P` otwiera pauzę.

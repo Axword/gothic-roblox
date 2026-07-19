@@ -52,3 +52,7 @@
 - Dodano serwerowe lekkie/mocne ciosy, trzyetapowy combo liczony czasowo, staminę, blok i unik.
 - Klient wykonuje proceduralne pozy Motor6D dla R15 przy ciosie/bloku/uniku; finalne assety Animation Editor pozostają P1.
 - Alarm po przestępstwie oznacza gracza per frakcja, a pobliscy NPC frakcji zadają obrażenia.
+
+## 2026-07-19 — Iteracja 12: menu główne
+- Dodano nakładkę menu głównego: Nowa gra, Wczytaj slot 1, Opcje i Wyjście.
+- Nowa gra resetuje wyłącznie serwerowy stan sesji; wyjście jest jawnym rozłączeniem gracza, a nie zaufaną akcją klienta.
