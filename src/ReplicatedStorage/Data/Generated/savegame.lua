@@ -1,0 +1,2 @@
+-- GENERATED: edit data/json, then tools/build_data
+return {schemaVersion = 1, player = {stats = {level = 1, xp = 0, learningPoints = 0, strength = 5, dexterity = 5, mana = 0, maxHp = 92}, inventory = {sword_01 = 1, lockpick = 3}, equipped = "sword_01"}, worldTime = 8.0, quests = {}, flags = {}, reputation = {kordon = 0, wolnica = 0}, openedChests = {}, defeated = {}, faction = nil}

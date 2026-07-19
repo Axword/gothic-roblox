@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "monster_zarlacz",
+      "name": "Żarłacz trzcin",
+      "biome": "bagno",
+      "behavior": "pack",
+      "hp": 42,
+      "damage": 8,
+      "lootTableId": "loot_beast"
+    },
+    {
+      "id": "monster_mulowiec",
+      "name": "Mułowiec",
+      "biome": "bagno",
+      "behavior": "tank",
+      "hp": 150,
+      "damage": 18,
+      "lootTableId": "loot_beast"
+    },
+    {
+      "id": "monster_mgielnik",
+      "name": "Mgielnik",
+      "biome": "wybrzeże",
+      "behavior": "ranged",
+      "hp": 65,
+      "damage": 14,
+      "lootTableId": "loot_beast"
+    },
+    {
+      "id": "monster_nocnik",
+      "name": "Nocnik popiołu",
+      "biome": "las",
+      "behavior": "nocturnal",
+      "hp": 55,
+      "damage": 12,
+      "lootTableId": "loot_beast"
+    },
+    {
+      "id": "monster_lupacz",
+      "name": "Łupacz skał",
+      "biome": "kamieniolom",
+      "behavior": "ambush",
+      "hp": 85,
+      "damage": 16,
+      "lootTableId": "loot_beast"
+    },
+    {
+      "id": "monster_szczeliniec",
+      "name": "Szczeliniec",
+      "biome": "szczelina",
+      "behavior": "caster",
+      "hp": 110,
+      "damage": 22,
+      "lootTableId": "loot_beast"
+    }
+  ]
+}

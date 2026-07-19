@@ -1,0 +1,2 @@
+-- GENERATED: edit data/json, then tools/build_data
+return {schemaVersion = 1, records = {{id = "trophy_hide", name = "Skóra żarłacza", value = 18, category = "trophy"}, {id = "trophy_gland", name = "Gruczoł mgielnika", value = 38, category = "trophy"}, {id = "trophy_fang", name = "Kieł łupacza", value = 24, category = "trophy"}, {id = "trophy_shell", name = "Pancerz mułowca", value = 30, category = "trophy"}, {id = "trophy_eye", name = "Oko szczeliny", value = 65, category = "trophy"}, {id = "trophy_feather", name = "Pióro nocnika", value = 14, category = "trophy"}}}

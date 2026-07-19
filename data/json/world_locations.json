@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "loc_kordon",
+      "name": "Kordon Żużla",
+      "kind": "settlement",
+      "position": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "loc_wolnica",
+      "name": "Wolnica",
+      "kind": "settlement",
+      "position": [
+        300,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "loc_trakt",
+      "name": "Trakt Smoły",
+      "kind": "road",
+      "position": [
+        150,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "loc_las",
+      "name": "Las Szeptów",
+      "kind": "forest",
+      "position": [
+        110,
+        0,
+        140
+      ]
+    },
+    {
+      "id": "loc_bagno",
+      "name": "Bagno Nitek",
+      "kind": "swamp",
+      "position": [
+        230,
+        0,
+        130
+      ]
+    },
+    {
+      "id": "loc_kamieniolom",
+      "name": "Kamieniołom Głuchy",
+      "kind": "quarry",
+      "position": [
+        -120,
+        0,
+        120
+      ]
+    },
+    {
+      "id": "loc_wybrzeze",
+      "name": "Wybrzeże Szkła",
+      "kind": "coast",
+      "position": [
+        350,
+        0,
+        -100
+      ]
+    },
+    {
+      "id": "loc_szczelina",
+      "name": "Gardziel Próżni",
+      "kind": "threat",
+      "position": [
+        160,
+        0,
+        -180
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+--!strict
+return { DATA_VERSION = 1, REMOTE_NAME = "GameAction", MAX_ACTIONS_PER_SECOND = 12, INTERACT_DISTANCE = 14 }

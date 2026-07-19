@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+"""Validate canonical JSON and emit Luau data modules for Rojo/Roblox."""
+import json, sys, re
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]; IN=ROOT/'data/json'; OUT=ROOT/'src/ReplicatedStorage/Data/Generated'
+errors=[]; all_ids={}; records={}
+def load(p):
+    try:
+        v=json.loads(p.read_text(encoding='utf-8'))
+        if not isinstance(v, (list,dict)): raise ValueError('root must be list/object')
+        return v
+    except Exception as e: errors.append(f'{p.relative_to(ROOT)}: invalid JSON: {e}'); return []
+def items(v): return v if isinstance(v,list) else v.get('records', [])
+for p in sorted(IN.glob('*.json')):
+    d=load(p); rs=items(d); records[p.stem]=d
+    if not isinstance(rs,list): errors.append(f'{p.name}: records must be a list'); continue
+    for r in rs:
+        if not isinstance(r,dict): errors.append(f'{p.name}: record is not object'); continue
+        i=r.get('id')
+        if i:
+            if not re.match(r'^[a-z0-9_]+$',i): errors.append(f'{p.name}:{i}: bad stable id')
+            if i in all_ids: errors.append(f'duplicate id {i}: {p.name} and {all_ids[i]}')
+            all_ids[i]=p.name
+# conservative cross-reference inspection, only fields explicitly holding stable IDs
+REF_FIELDS={'questId','npcId','itemId','spellId','locationId','trainerId','monsterId','requiresQuest','requiresItem','targetId','dialogueId','lootTableId'}
+def refs(x, source):
+    if isinstance(x,dict):
+        for k,v in x.items():
+            if k in REF_FIELDS and isinstance(v,str) and v not in all_ids: errors.append(f'{source}: missing reference {k}={v}')
+            refs(v,source)
+    elif isinstance(x,list):
+        for v in x: refs(v,source)
+for name,d in records.items(): refs(d,name)
+if errors:
+    print('DATA VALIDATION FAILED', *errors, sep='\n', file=sys.stderr); sys.exit(1)
+OUT.mkdir(parents=True,exist_ok=True)
+def lua(v, indent=0):
+    pad='  '*indent
+    if v is None:return 'nil'
+    if v is True:return 'true'
+    if v is False:return 'false'
+    if isinstance(v,(int,float)):return repr(v)
+    if isinstance(v,str):return json.dumps(v,ensure_ascii=False)
+    if isinstance(v,list): return '{'+(', '.join(lua(x,indent+1) for x in v))+'}'
+    return '{' + ', '.join((('[' + lua(k) + ']' if not re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', k) else k) + ' = ' + lua(x, indent + 1)) for k, x in v.items()) + '}'
+for name,data in records.items():
+    (OUT/(name+'.lua')).write_text('-- GENERATED: edit data/json, then tools/build_data\nreturn '+lua(data)+'\n',encoding='utf-8')
+(OUT/'manifest.lua').write_text('-- GENERATED\nreturn '+lua({k:k for k in records})+'\n',encoding='utf-8')
+print(f'validated {len(records)} files, {len(all_ids)} stable IDs; generated {OUT.relative_to(ROOT)}')

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "quest_new_01",
+      "name": "Dług bez twarzy",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: defeat (monster_zarlacz).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 35,
+        "coin_zuzel": 20
+      },
+      "branching": true,
+      "objectives": [
+        {
+          "id": "objective_new_01",
+          "kind": "defeat",
+          "targetId": "monster_zarlacz",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "quest_new_02",
+      "name": "Cicha dostawa",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: collect (objective_new_02).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 40,
+        "coin_zuzel": 28
+      },
+      "branching": false,
+      "objectives": [
+        {
+          "id": "objective_new_02",
+          "kind": "collect",
+          "targetId": "objective_new_02",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "quest_new_03",
+      "name": "Krew na trzcinie",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: inspect (objective_new_03).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 45,
+        "coin_zuzel": 36
+      },
+      "branching": true,
+      "objectives": [
+        {
+          "id": "objective_new_03",
+          "kind": "inspect",
+          "targetId": "objective_new_03",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "quest_new_04",
+      "name": "Pęknięta skrzynia",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: collect (objective_new_04).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 50,
+        "coin_zuzel": 44
+      },
+      "branching": false,
+      "objectives": [
+        {
+          "id": "objective_new_04",
+          "kind": "collect",
+          "targetId": "objective_new_04",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "quest_new_05",
+      "name": "Wolność za żużel",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: inspect (objective_new_05).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 55,
+        "coin_zuzel": 52
+      },
+      "branching": true,
+      "objectives": [
+        {
+          "id": "objective_new_05",
+          "kind": "inspect",
+          "targetId": "objective_new_05",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

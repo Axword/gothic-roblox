@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "quest_old_01",
+      "name": "Twarda brama",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: inspect (objective_old_01).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 35,
+        "coin_zuzel": 20
+      },
+      "branching": true,
+      "objectives": [
+        {
+          "id": "objective_old_01",
+          "kind": "inspect",
+          "targetId": "objective_old_01",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "quest_old_02",
+      "name": "Rejestr długów",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: collect (objective_old_02).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 40,
+        "coin_zuzel": 28
+      },
+      "branching": false,
+      "objectives": [
+        {
+          "id": "objective_old_02",
+          "kind": "collect",
+          "targetId": "objective_old_02",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "quest_old_03",
+      "name": "Nocny apel",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: inspect (objective_old_03).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 45,
+        "coin_zuzel": 36
+      },
+      "branching": true,
+      "objectives": [
+        {
+          "id": "objective_old_03",
+          "kind": "inspect",
+          "targetId": "objective_old_03",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "quest_old_04",
+      "name": "Zaginiona pałka",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: collect (objective_old_04).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 50,
+        "coin_zuzel": 44
+      },
+      "branching": false,
+      "objectives": [
+        {
+          "id": "objective_old_04",
+          "kind": "collect",
+          "targetId": "objective_old_04",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "quest_old_05",
+      "name": "Cena porządku",
+      "stages": [
+        "Przyjmij zlecenie.",
+        "Cel: inspect (objective_old_05).",
+        "Wróć po zapłatę."
+      ],
+      "rewards": {
+        "xp": 55,
+        "coin_zuzel": 52
+      },
+      "branching": true,
+      "objectives": [
+        {
+          "id": "objective_old_05",
+          "kind": "inspect",
+          "targetId": "objective_old_05",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

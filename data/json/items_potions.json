@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "potion_01",
+      "name": "Mikstura Leczenia",
+      "effect": "hp+45",
+      "value": 30,
+      "visual": "Procedural/Potions/1"
+    },
+    {
+      "id": "potion_02",
+      "name": "Mikstura Many",
+      "effect": "mana+35",
+      "value": 42,
+      "visual": "Procedural/Potions/2"
+    },
+    {
+      "id": "potion_03",
+      "name": "Mikstura Wytrzymałości",
+      "effect": "stamina+50",
+      "value": 54,
+      "visual": "Procedural/Potions/3"
+    },
+    {
+      "id": "potion_04",
+      "name": "Mikstura Antytoksyny",
+      "effect": "cure_poison",
+      "value": 66,
+      "visual": "Procedural/Potions/4"
+    },
+    {
+      "id": "potion_05",
+      "name": "Mikstura Kamiennej Skóry",
+      "effect": "armor+10",
+      "value": 78,
+      "visual": "Procedural/Potions/5"
+    },
+    {
+      "id": "potion_06",
+      "name": "Mikstura Nocnego Wzroku",
+      "effect": "night_vision",
+      "value": 90,
+      "visual": "Procedural/Potions/6"
+    }
+  ]
+}

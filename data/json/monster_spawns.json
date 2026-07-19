@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "spawn_1",
+      "monsterId": "monster_zarlacz",
+      "locationId": "loc_bagno",
+      "count": 4
+    },
+    {
+      "id": "spawn_2",
+      "monsterId": "monster_mulowiec",
+      "locationId": "loc_bagno",
+      "count": 1
+    },
+    {
+      "id": "spawn_3",
+      "monsterId": "monster_mgielnik",
+      "locationId": "loc_wybrzeze",
+      "count": 3
+    },
+    {
+      "id": "spawn_4",
+      "monsterId": "monster_nocnik",
+      "locationId": "loc_las",
+      "count": 3
+    },
+    {
+      "id": "spawn_5",
+      "monsterId": "monster_lupacz",
+      "locationId": "loc_kamieniolom",
+      "count": 2
+    },
+    {
+      "id": "spawn_6",
+      "monsterId": "monster_szczeliniec",
+      "locationId": "loc_szczelina",
+      "count": 2
+    }
+  ]
+}

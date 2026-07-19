@@ -1,0 +1,2 @@
+-- GENERATED: edit data/json, then tools/build_data
+return {schemaVersion = 1, records = {{id = "quest_main_arrival", name = "List bez adresu", stages = {"Porozmawiaj z Borzujem lub Runą.", "Odszukaj nadpalony list.", "Poznaj oba obozy."}, rewards = {xp = 80}, next = "quest_main_right"}, {id = "quest_main_right", name = "Prawo do głosu", stages = {"Ukończ dwa zadania Kordonu lub Wolnicy.", "Wybierz stronę przy Szczelinie."}, rewards = {xp = 150}, branches = {"kordon", "wolnica"}, ending = "epilogue"}}}
