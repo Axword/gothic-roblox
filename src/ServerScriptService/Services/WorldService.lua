@@ -3,13 +3,13 @@
 local Lighting = game:GetService("Lighting")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local TweenService = game:GetService("TweenService")
 local DataIndex = require(ReplicatedStorage.Shared.DataIndex)
 local Quest = require(script.Parent.QuestService)
 local State = require(script.Parent.StateService)
 local Crime = require(script.Parent.CrimeService)
 local Trainers = require(script.Parent.TrainerService)
 local Dialogues = require(script.Parent.DialogueService)
+local Routines = require(script.Parent.RoutineService)
 
 local World = {}
 local worldTime = 8
@@ -60,7 +60,8 @@ local function applySchedule(npcId: string): ()
 	if not destination then return end
 	-- Small server-owned move, not client navigation. A failed/missing marker goes to faction-safe fallback.
 	if (root.Position - destination).Magnitude > 4 then
-		TweenService:Create(root, TweenInfo.new(1.8, Enum.EasingStyle.Linear), {Position = destination}):Play()
+		local fallback = markers["safe_" .. tostring(model:GetAttribute("Faction"))] or destination
+		Routines.move(model, destination, fallback)
 	end
 end
 

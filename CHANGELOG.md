@@ -59,3 +59,6 @@
 
 ## 2026-07-19 — Audyt braków produkcyjnych
 - Dodano `IMPLEMENTATION_GAPS.md`: mierzalny rejestr P0/P1/P2 z bieżącym stanem, plikami startowymi i kryteriami akceptacji.
+
+## 2026-07-19 — Iteracja 13: ścieżki rutyn NPC
+- Dodano serwerowy `RoutineService` oparty o PathfindingService, markery harmonogramu i fallback poza wzrokiem gracza.

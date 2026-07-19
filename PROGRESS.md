@@ -43,3 +43,6 @@ Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następ
 
 ## Rejestr domknięcia
 Pełny, utrzymywany rejestr braków oraz kolejność prac znajduje się w `IMPLEMENTATION_GAPS.md`. Jest źródłem prawdy dla elementów, których nie należy błędnie oznaczać jako ukończone.
+
+## Iteracja 13
+- Rutyny NPC korzystają z `PathfindingService` i fallbacku widoczności. Nadal są to proceduralne proxy bez rigów R15, dlatego finalne animacje pracy/snu pozostają P0.

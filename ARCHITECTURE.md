@@ -12,3 +12,5 @@ Save ma `schemaVersion`, ID zamiast Instance, domyślne wartości oraz bezpieczn
 `SaveService` buduje klucz slotu wyłącznie na serwerze i zaciska indeks do 1–3. Remote `save/load` nie może wskazać własnego klucza DataStore. Ustawienia prezentacji są lokalne; nie są częścią stanu zaufanego gry.
 
 `InventoryService.activate` odszukuje przedmiot wyłącznie w indeksach wygenerowanych z JSON i dopiero potem sprawdza stan serwerowego ekwipunku. Klient nie może przekazać ilości, efektu, ceny ani wartości leczenia.
+
+`RoutineService` przelicza drogę serwerowo od proxy NPC do markera harmonogramu. Gdy ścieżka nie istnieje, przenosi NPC do bezpiecznego fallbacku tylko poza zasięgiem obserwacji albo wykonuje widoczny bezpieczny powrót Tweenem. Scheduler przesuwa pojedynczy waypoint na tick, aby nie nakładać ruchu.
