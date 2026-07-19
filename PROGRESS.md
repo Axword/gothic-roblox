@@ -1,0 +1,12 @@
+# Postęp
+## Ukończone w repozytorium
+- JSON jako źródło prawdy, generator ModuleScripts i walidacja referencji.
+- Treść minimalna danych zgodna z liczbowymi minimami.
+- Uruchamialny bootstrap: mapa z ośmioma regionami, światło doby, Prompt, dialog startowy, zamek sekwencyjny, NPC/monster model i DataStore.
+
+## W toku / wymagające Studio
+- Smoke test w opublikowanym doświadczeniu nie został wykonany; zatem żadna funkcja nie jest reklamowana jako potwierdzona w publikacji.
+- Rozbudowa pionowego prototypu do wszystkich NPC, UI i systemów P0.
+
+## Następny krok
+Uruchomić Rojo w Studio, wykonać test PLAY opisany w `TEST_PLAN.md`, a następnie wdrożyć prawdziwe AI/NPC schedules i ekrany ekwipunku/questów.

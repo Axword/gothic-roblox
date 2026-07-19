@@ -1,0 +1,624 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "dlg_old_01",
+      "npcId": "npc_old_01",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Nie przyszedłeś tu po prawdę. Prawda nie ma tu łóżka.",
+          "responses": [
+            {
+              "text": "Szukam prawa do głosu.",
+              "next": "task",
+              "action": "startQuest:quest_main_arrival"
+            },
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "task",
+          "text": "Prawo ma cenę. Najpierw udowodnij, że nie jesteś tylko kolejnym problemem.",
+          "responses": [
+            {
+              "text": "Wezmę robotę.",
+              "action": "startQuest:quest_old_01"
+            },
+            {
+              "text": "Nie dziś.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_02",
+      "npcId": "npc_old_02",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_03",
+      "npcId": "npc_old_03",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_04",
+      "npcId": "npc_old_04",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_05",
+      "npcId": "npc_old_05",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_06",
+      "npcId": "npc_old_06",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_07",
+      "npcId": "npc_old_07",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_08",
+      "npcId": "npc_old_08",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_09",
+      "npcId": "npc_old_09",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_10",
+      "npcId": "npc_old_10",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_11",
+      "npcId": "npc_old_11",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_12",
+      "npcId": "npc_old_12",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_13",
+      "npcId": "npc_old_13",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_14",
+      "npcId": "npc_old_14",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_15",
+      "npcId": "npc_old_15",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_16",
+      "npcId": "npc_old_16",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_17",
+      "npcId": "npc_old_17",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_18",
+      "npcId": "npc_old_18",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_19",
+      "npcId": "npc_old_19",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg_old_20",
+      "npcId": "npc_old_20",
+      "nodes": [
+        {
+          "id": "start",
+          "text": "Masz sprawę, czy tylko cień rzucasz?",
+          "responses": [
+            {
+              "text": "Mam pytanie.",
+              "next": "work"
+            },
+            {
+              "text": "Odchodzę.",
+              "action": "close"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "text": "Pytania są darmowe. Odpowiedzi zwykle nie.",
+          "responses": [
+            {
+              "text": "Rozumiem.",
+              "action": "close"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

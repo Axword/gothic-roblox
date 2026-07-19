@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "trainer_borzuj",
+      "npcId": "npc_old_01",
+      "skills": [
+        "sword"
+      ],
+      "limits": {
+        "sword": 3
+      },
+      "currency": "coin_zuzel"
+    },
+    {
+      "id": "trainer_rdzaw",
+      "npcId": "npc_old_02",
+      "skills": [
+        "strength",
+        "lockpick"
+      ],
+      "limits": {
+        "strength": 50,
+        "lockpick": 3
+      },
+      "currency": "coin_zuzel"
+    },
+    {
+      "id": "trainer_kret",
+      "npcId": "npc_new_02",
+      "skills": [
+        "theft",
+        "lockpick"
+      ],
+      "limits": {
+        "theft": 3,
+        "lockpick": 3
+      },
+      "currency": "coin_zuzel"
+    },
+    {
+      "id": "trainer_zaba",
+      "npcId": "npc_new_07",
+      "skills": [
+        "skinning",
+        "bow"
+      ],
+      "limits": {
+        "skinning": 1,
+        "bow": 3
+      },
+      "currency": "coin_zuzel"
+    },
+    {
+      "id": "trainer_karp",
+      "npcId": "npc_neutral_02",
+      "skills": [
+        "mana",
+        "spell"
+      ],
+      "limits": {
+        "mana": 60,
+        "spell": 2
+      },
+      "currency": "coin_zuzel"
+    }
+  ]
+}

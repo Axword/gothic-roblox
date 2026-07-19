@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "balance_core",
+      "xpPerLevelBase": 100,
+      "hpFormula": "maxHp = 80 + level * 12 + vitality * 2",
+      "learningPointsPerLevel": 10,
+      "swordDamageFormula": "base + strength * 0.55",
+      "bowDamageFormula": "base + dexterity * 0.65"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+-- GENERATED: edit data/json, then tools/build_data
+return {schemaVersion = 1, records = {{id = "loot_beast", rolls = {{itemId = "trophy_hide", chance = 0.7}, {itemId = "trophy_fang", chance = 0.3}}}, {id = "loot_starter_chest", rolls = {{itemId = "sword_01", chance = 1}, {itemId = "lockpick", quantity = 3, chance = 1}, {itemId = "potion_01", chance = 1}}}}}

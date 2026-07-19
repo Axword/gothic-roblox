@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "coin_zuzel",
+      "name": "Żużel",
+      "category": "currency",
+      "value": 1
+    },
+    {
+      "id": "lockpick",
+      "name": "Wytrych",
+      "category": "tool",
+      "value": 12
+    },
+    {
+      "id": "arrow_iron",
+      "name": "Żelazna strzała",
+      "category": "ammo",
+      "value": 2
+    },
+    {
+      "id": "key_gate",
+      "name": "Klucz Bramy Kordonu",
+      "category": "key",
+      "questProtected": true
+    },
+    {
+      "id": "letter_scorched",
+      "name": "Nadpalony list",
+      "category": "quest",
+      "questProtected": true
+    },
+    {
+      "id": "proof_seal",
+      "name": "Pęknięta pieczęć",
+      "category": "quest",
+      "questProtected": true
+    }
+  ]
+}
