@@ -11,9 +11,9 @@ function Combat.damageTarget(player:Player,target:Model,style:string,id:string):
  if not hrp or not tr or not hum or hum.Health<=0 or (hrp.Position-tr.Position).Magnitude>(style=="sword" and 10 or 80) then return false end
  if target:GetAttribute("Faction")==State.get(player).faction then return false end
  local s=State.get(player);local damage=0
- if style=="sword" then local weapon=swords[id];if not weapon or s.inventory[id]~=1 then return false end;damage=Formulae.swordDamage(weapon.damage,s.stats.strength)
- elseif style=="bow" then local weapon=bows[id];if not weapon or (s.inventory.arrow_iron or 0)<1 then return false end;s.inventory.arrow_iron-=1;damage=Formulae.bowDamage(weapon.damage,s.stats.dexterity)
- elseif style=="spell" then local spell=spells[id];if not spell or s.stats.mana<spell.manaCost then return false end;s.stats.mana-=spell.manaCost;damage=spell.damage
+ if style=="sword" then local weapon=swords[id];if not weapon or (s.inventory[id] or 0)<1 then return false end;damage=Formulae.swordDamage(weapon.damage,s.stats.strength)
+ elseif style=="bow" then local weapon=bows[id];if not weapon or (s.inventory[id] or 0)<1 or (s.inventory.arrow_iron or 0)<1 then return false end;s.inventory.arrow_iron-=1;damage=Formulae.bowDamage(weapon.damage,s.stats.dexterity)
+ elseif style=="spell" then local spell=spells[id];if not spell or (not s.inventory[id] and not s.flags["learned_spell_"..id]) or s.stats.mana<spell.manaCost then return false end;s.stats.mana-=spell.manaCost;damage=spell.damage
  else return false end
  hum:TakeDamage(damage);if hum.Health<=0 then State.addXp(player,25) end;return true
 end

@@ -13,7 +13,12 @@ function StateService.remove(player:Player) states[player]=nil end
 function StateService.addItem(player:Player,id:string,count:number) local s=StateService.get(player); s.inventory[id]=(s.inventory[id] or 0)+count end
 function StateService.addXp(player:Player, amount:number)
  local s=StateService.get(player); s.stats.xp+=amount; local old=s.stats.level; local new=Formulae.levelForXp(s.stats.xp)
- if new>old then s.stats.learningPoints+=(new-old)*10;s.stats.level=new;s.stats.maxHp=Formulae.maxHp(new,s.stats.vitality) end
+ if new>old then
+  s.stats.learningPoints+=(new-old)*10;s.stats.level=new;s.stats.maxHp=Formulae.maxHp(new,s.stats.vitality)
+  pcall(function()
+   local char=player.Character; if char then local h=char:FindFirstChildOfClass("Humanoid"); if h then h.MaxHealth=s.stats.maxHp; h.Health=math.min(h.Health + (new-old)*12, s.stats.maxHp) end end
+  end)
+ end
 end
 Players.PlayerRemoving:Connect(StateService.remove)
 return StateService

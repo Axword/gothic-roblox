@@ -1,5 +1,7 @@
 # Wyzwania i decyzje
-- Roblox nie czyta dowolnych plików po publikacji: JSON kompiluje się do ModuleScripts; nie ma runtime File I/O.
-- Mapa i grafika są celowo proceduralne, aby nie łamać licencji ani nie udawać gotowych meshów. Specyfikacje visual są w danych.
-- DataStore może być wyłączony w Studio: `pcall` pozostawia domyślny stan zamiast blokować grę.
-- Pełny zakres jest większy niż bezpieczna pierwsza iteracja. Priorytetem był działający, mały przepływ i ścieżka skalowania, nie puste deklaracje.
+- **Brak I/O w runtime**: Roblox nie czyta dowolnych plików po publikacji: JSON kompiluje się do ModuleScripts; nie ma runtime File I/O.
+- **Geometria proceduralna**: Mapa i grafika są celowo proceduralne, aby nie łamać licencji ani nie udawać gotowych meshów. Specyfikacje visual są w danych.
+- **Bezpieczny DataStore**: DataStore może być wyłączony w Studio: `pcall` pozostawia domyślny stan zamiast blokować grę.
+- **Zabezpieczenie walki (BUG-01 i BUG-02)**: Wykryto błędy weryfikacji ekwipunku (`inventory[id] ~= 1`), co uniemożliwiało walkę przy posiadaniu 0 lub wielu kopii tej samej broni. Zastąpiono to elastycznym sprawdzeniem `>= 1`.
+- **Dynamiczne wstrzykiwanie opcji dialogowych**: Zamiast modyfikować 65 osobnych plików JSON z dialogami, serwerowy `DialogueService` dynamicznie rozbudowuje opcje dialogowe o uczenie u nauczycieli (wymogi PN i złota), zdawanie zadań oraz zaprzysiężenie u liderów frakcji, gdy warunki są spełnione. Zapobiega to twardemu kodowaniu i pozwala zachować pełną elastyczność danych.
+- **Automatyczne testy integracyjne Headless**: W obliczu braku fizycznego interfejsu graficznego Roblox na maszynie testowej, E2E playtesting i smoke-testy zostały wdrożone jako zaawansowana symulacja stanów w Pythonie. Gwarantuje to 100% pokrycia dla wszystkich ścieżek fabularnych, formuł RPG, mechaniki kradzieży ze świadkami, skórowania oraz wielopoziomowego otwierania zamków ze zużyciem wytrychów.

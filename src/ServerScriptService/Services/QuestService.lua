@@ -9,7 +9,10 @@ function QuestService.start(player:Player,id:string):boolean
 end
 function QuestService.complete(player:Player,id:string):boolean
  local s=State.get(player);local q=quests[id];if not q or s.quests[id]~="active" then return false end
- s.quests[id]="complete"; State.addXp(player,(q.rewards and q.rewards.xp) or 0); if q.rewards and q.rewards.coin_zuzel then State.addItem(player,"coin_zuzel",q.rewards.coin_zuzel) end; return true
+ s.quests[id]="complete"; State.addXp(player,(q.rewards and q.rewards.xp) or 0); if q.rewards and q.rewards.coin_zuzel then State.addItem(player,"coin_zuzel",q.rewards.coin_zuzel) end
+ if q.next then QuestService.start(player,q.next) end
+ if q.ending=="epilogue" then s.flags["epilogue_started"]=true; s.flags["game_completed"]=true end
+ return true
 end
 function QuestService.chooseFaction(player:Player,faction:string):boolean
  local s=State.get(player);if s.faction or (faction~="kordon" and faction~="wolnica") then return false end
