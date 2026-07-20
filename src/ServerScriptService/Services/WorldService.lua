@@ -59,6 +59,16 @@ function World.build()
 	local ground = part(folder, "Ground", Vector3.new(120, -4, 0), Vector3.new(1200, 8, 1000), Color3.fromRGB(48, 45, 40))
 	ground.Material = Enum.Material.Ground
 	
+	-- Dynamic SpawnLocation to prevent players falling into the void on load
+	local spawnLoc = Instance.new("SpawnLocation")
+	spawnLoc.Name = "SpawnLocation"
+	spawnLoc.Anchored = true
+	spawnLoc.Size = Vector3.new(12, 1, 12)
+	spawnLoc.Position = Vector3.new(0, 1, 0) -- sits perfectly on top of the ground
+	spawnLoc.Color = Color3.fromRGB(80, 80, 80)
+	spawnLoc.Material = Enum.Material.Concrete
+	spawnLoc.Parent = folder
+	
 	for _, loc in DataIndex.records("world_locations") do
 		local pos = Vector3.new(loc.position[1], 4, loc.position[3])
 		local color, material = getBiomeVisuals(loc.kind)
