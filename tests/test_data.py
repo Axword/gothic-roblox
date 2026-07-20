@@ -10,7 +10,7 @@ root = Path(__file__).resolve().parents[1]
 data_dir = root / 'data/json'
 
 # Execute the compiler script first
-subprocess.run([str(root / 'tools/build_data')], check=True)
+subprocess.run([sys.executable, str(root / 'tools/build_data')], check=True)
 
 # Helper to load a JSON file
 def load_json(name):
