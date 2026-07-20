@@ -5,11 +5,11 @@ local RunService = game:GetService("RunService")
 
 local Constants = require(ReplicatedStorage.Shared.Constants)
 local DataIndex = require(ReplicatedStorage.Shared.DataIndex)
-local State = require(script.Services.StateService)
-local Save = require(script.Services.SaveService)
-local Combat = require(script.Services.CombatService)
-local World = require(script.Services.WorldService)
-local Dialogue = require(script.Services.DialogueService)
+local State = require(script.Parent.Services.StateService)
+local Save = require(script.Parent.Services.SaveService)
+local Combat = require(script.Parent.Services.CombatService)
+local World = require(script.Parent.Services.WorldService)
+local Dialogue = require(script.Parent.Services.DialogueService)
 
 local remotes = Instance.new("Folder")
 remotes.Name = "Remotes"
